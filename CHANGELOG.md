@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.24.1] - 2025-01-27
+
+### Fixed
+- **GitHub Pages Deployment Permissions**: Fixed permission denied error for github-actions[bot]
+  - Replaced deprecated `peaceiris/actions-gh-pages@v3` with official GitHub Pages actions
+  - Added proper permissions configuration (`contents: read`, `pages: write`, `id-token: write`)
+  - Created separate deploy workflow for better separation of concerns
+  - Enhanced security with official GitHub authentication tokens
+
+### Enhanced
+- **Deployment Workflow**: Improved GitHub Pages deployment system
+  - Created dedicated `.github/workflows/deploy.yml` workflow
+  - Added environment configuration for better deployment tracking
+  - Implemented concurrency control to prevent deployment conflicts
+  - Added proper artifact upload and deployment steps
+
+### Technical Details
+- Updated build workflow to remove deployment logic (separation of concerns)
+- Added `actions/configure-pages@v4`, `actions/upload-pages-artifact@v3`, `actions/deploy-pages@v4`
+- Created comprehensive GitHub Pages setup documentation
+- Fixed authentication issues with official GitHub Actions
+- All workflows now use modern, maintained actions with proper permissions
+
 ## [1.24.0] - 2025-01-27
 
 ### Added
