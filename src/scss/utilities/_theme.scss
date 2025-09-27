@@ -1,0 +1,302 @@
+// Design Toolkit - Theme Utilities
+// Dark theme utility classes and theme switching
+
+// Theme toggle button
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 1.25rem;
+  color: var(--gray-600);
+  background-color: transparent;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  
+  &:hover {
+    color: var(--gray-900);
+    background-color: var(--gray-100);
+    border-color: var(--gray-400);
+  }
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .theme-icon {
+    transition: transform var(--transition-fast);
+  }
+  
+  &:hover .theme-icon {
+    transform: rotate(180deg);
+  }
+}
+
+// Theme-specific background utilities
+.bg-theme-primary { background-color: var(--bg-primary) !important; }
+.bg-theme-secondary { background-color: var(--bg-secondary) !important; }
+.bg-theme-tertiary { background-color: var(--bg-tertiary) !important; }
+
+// Theme-specific text utilities
+.text-theme-primary { color: var(--text-primary) !important; }
+.text-theme-secondary { color: var(--text-secondary) !important; }
+.text-theme-tertiary { color: var(--text-tertiary) !important; }
+
+// Theme-specific border utilities
+.border-theme-primary { border-color: var(--border-primary) !important; }
+.border-theme-secondary { border-color: var(--border-secondary) !important; }
+.border-theme-tertiary { border-color: var(--border-tertiary) !important; }
+
+// Dark theme specific utilities
+.dark-mode {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  
+  .card {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-primary);
+    color: var(--text-primary);
+  }
+  
+  .card-header {
+    background-color: var(--bg-tertiary);
+    border-bottom-color: var(--border-primary);
+  }
+  
+  .card-footer {
+    background-color: var(--bg-tertiary);
+    border-top-color: var(--border-primary);
+  }
+  
+  .navbar {
+    background-color: var(--bg-secondary);
+    border-bottom-color: var(--border-primary);
+  }
+  
+  .modal-content {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-primary);
+  }
+  
+  .modal-header {
+    background-color: var(--bg-tertiary);
+    border-bottom-color: var(--border-primary);
+  }
+  
+  .modal-footer {
+    background-color: var(--bg-tertiary);
+    border-top-color: var(--border-primary);
+  }
+  
+  .form-control {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-primary);
+    color: var(--text-primary);
+    
+    &:focus {
+      background-color: var(--bg-tertiary);
+      border-color: var(--primary-color);
+      color: var(--text-primary);
+    }
+    
+    &::placeholder {
+      color: var(--text-tertiary);
+    }
+  }
+  
+  .custom-select {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-primary);
+    color: var(--text-primary);
+    
+    &:focus {
+      background-color: var(--bg-tertiary);
+      border-color: var(--primary-color);
+      color: var(--text-primary);
+    }
+  }
+  
+  .input-group-text {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-primary);
+    color: var(--text-secondary);
+  }
+  
+  .breadcrumb {
+    background-color: transparent;
+  }
+  
+  .breadcrumb-item {
+    &.active {
+      color: var(--text-secondary);
+    }
+  }
+  
+  .nav-link {
+    color: var(--text-secondary);
+    
+    &:hover {
+      color: var(--text-primary);
+    }
+    
+    &:focus {
+      color: var(--text-primary);
+    }
+  }
+  
+  .nav-tabs {
+    border-bottom-color: var(--border-primary);
+    
+    .nav-link {
+      border-color: transparent;
+      color: var(--text-secondary);
+      
+      &:hover {
+        border-color: var(--border-primary) var(--border-primary) var(--border-primary);
+        color: var(--text-primary);
+      }
+      
+      &.active {
+        color: var(--text-primary);
+        background-color: var(--bg-secondary);
+        border-color: var(--border-primary) var(--border-primary) var(--bg-secondary);
+      }
+    }
+  }
+  
+  .pagination {
+    .page-link {
+      color: var(--text-secondary);
+      background-color: var(--bg-secondary);
+      border-color: var(--border-primary);
+      
+      &:hover {
+        color: var(--text-primary);
+        background-color: var(--bg-tertiary);
+        border-color: var(--border-primary);
+      }
+      
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+      }
+    }
+    
+    .page-item.active .page-link {
+      color: var(--white);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .page-item.disabled .page-link {
+      color: var(--text-tertiary);
+      background-color: var(--bg-secondary);
+      border-color: var(--border-primary);
+    }
+  }
+  
+  .alert {
+    border-color: transparent;
+    
+    &.alert-primary {
+      color: var(--primary-dark);
+      background-color: var(--primary-light);
+    }
+    
+    &.alert-secondary {
+      color: var(--secondary-dark);
+      background-color: var(--secondary-light);
+    }
+    
+    &.alert-success {
+      color: var(--success-dark);
+      background-color: var(--success-light);
+    }
+    
+    &.alert-danger {
+      color: var(--danger-dark);
+      background-color: var(--danger-light);
+    }
+    
+    &.alert-warning {
+      color: var(--warning-dark);
+      background-color: var(--warning-light);
+    }
+    
+    &.alert-info {
+      color: var(--info-dark);
+      background-color: var(--info-light);
+    }
+    
+    &.alert-light {
+      color: var(--text-primary);
+      background-color: var(--light-color);
+    }
+    
+    &.alert-dark {
+      color: var(--dark-color);
+      background-color: var(--dark-color);
+    }
+  }
+  
+  .table {
+    color: var(--text-primary);
+    
+    th, td {
+      border-color: var(--border-primary);
+    }
+    
+    thead th {
+      border-bottom-color: var(--border-primary);
+    }
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--bg-tertiary);
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: var(--bg-tertiary);
+  }
+}
+
+// Light theme specific utilities (for explicit light mode)
+.light-mode {
+  background-color: var(--white);
+  color: var(--gray-900);
+}
+
+// Theme transition utilities
+.theme-transition {
+  transition: background-color var(--transition-normal), 
+              color var(--transition-normal), 
+              border-color var(--transition-normal);
+}
+
+// Theme-aware components
+.theme-aware {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+  transition: background-color var(--transition-normal), 
+              color var(--transition-normal), 
+              border-color var(--transition-normal);
+}
+
+// Dark theme specific shadows
+.shadow-dark {
+  box-shadow: var(--shadow-md) !important;
+}
+
+.shadow-dark-lg {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.shadow-dark-xl {
+  box-shadow: var(--shadow-xl) !important;
+}

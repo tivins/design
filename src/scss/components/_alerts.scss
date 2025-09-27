@@ -1,0 +1,214 @@
+// Design Toolkit - Alerts
+// Alert component for displaying messages
+
+.alert {
+  position: relative;
+  /* padding: var(--spacing-md) var(--spacing-lg); */
+  margin-bottom: var(--spacing-md);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  /* align-items: center; */
+  gap: var(--spacing-sm);
+  
+  // Ensure proper alignment for content
+  > * {
+    margin-bottom: 0;
+  }
+  
+  // Icon alignment with specific margins
+  dt-icon {
+    flex-shrink: 0;
+    margin: 1rem 0.5rem 1rem 1rem; // Top, right, bottom, left margins
+    padding: 0;
+  }
+  
+  // Content wrapper for better text flow
+  .alert-content {
+    flex: 1;
+    min-width: 0; // Allow text to wrap properly
+    /* padding-left: 0; */
+    padding: 1rem 1rem 1rem 0;
+  }
+  
+  // When alert has no content wrapper, adjust direct text
+  > strong,
+  > p,
+  > span:not(dt-icon) {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.alert-heading {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  margin-left: 0;
+  padding-left: 0;
+  
+  dt-icon {
+    flex-shrink: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.alert-link {
+  font-weight: var(--font-weight-semibold);
+}
+
+.alert-dismissible {
+  /* padding-right: calc(var(--spacing-lg) + 2.5rem); // More space for close button */
+  
+  .close {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    z-index: 2;
+    padding: var(--spacing-xs);
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-normal);
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    dt-icon {
+      margin: 0; // Reset margins for close button icons
+      padding: 0;
+    }
+  }
+  
+  // Ensure content doesn't overlap with close button
+  .alert-content {
+    margin-right: 2rem; // Space for close button
+    padding-right: 0;
+  }
+}
+
+// Alert variants
+.alert-primary {
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+  
+  .alert-link {
+    color: var(--primary-dark);
+  }
+}
+
+.alert-secondary {
+  color: var(--secondary-dark);
+  background-color: var(--secondary-light);
+  border-color: var(--secondary-light);
+  
+  .alert-link {
+    color: var(--secondary-dark);
+  }
+}
+
+.alert-success {
+  color: var(--success-dark);
+  background-color: var(--success-light);
+  border-color: var(--success-light);
+  
+  .alert-link {
+    color: var(--success-dark);
+  }
+}
+
+.alert-danger {
+  color: var(--danger-dark);
+  background-color: var(--danger-light);
+  border-color: var(--danger-light);
+  
+  .alert-link {
+    color: var(--danger-dark);
+  }
+}
+
+.alert-warning {
+  color: var(--warning-dark);
+  background-color: var(--warning-light);
+  border-color: var(--warning-light);
+  
+  .alert-link {
+    color: var(--warning-dark);
+  }
+}
+
+.alert-info {
+  color: var(--info-dark);
+  background-color: var(--info-light);
+  border-color: var(--info-light);
+  
+  .alert-link {
+    color: var(--info-dark);
+  }
+}
+
+.alert-light {
+  color: var(--gray-800);
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  
+  .alert-link {
+    color: var(--gray-800);
+  }
+}
+
+.alert-dark {
+  color: var(--white);
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+  
+  .alert-link {
+    color: var(--white);
+  }
+}
+
+// Close button
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  color: var(--gray-900);
+  text-shadow: 0 1px 0 var(--white);
+  opacity: 0.5;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--gray-900);
+    text-decoration: none;
+    opacity: 0.75;
+  }
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+}
+
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+}

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Toolkit Demo</title>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <style>
+        body {
+            background-color: var(--white);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        [data-theme="dark"] body {
+            background-color: var(--bg-primary);
+        }
+        .demo-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        [data-theme="dark"] .demo-section {
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow-md);
+        }
+        .demo-section h2 {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--gray-900);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        [data-theme="dark"] .demo-section h2 {
+            color: var(--text-primary);
+        }
+        .component-demo {
+            margin-bottom: 2rem;
+        }
+        .code-example {
+            background: var(--gray-100);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            border-left: 4px solid var(--primary-color);
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        [data-theme="dark"] .code-example {
+            background: var(--bg-tertiary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center  py-5">
+            <div>
+                <h1 class="text-center">Design Toolkit</h1>
+                <p class="text-center text-muted">A modern frontend toolkit demonstration</p>
+            </div>
+            <div class="mb-4">
+                <dt-theme-toggle variant="link" title="Toggle theme"></dt-theme-toggle>
+            </div>
+        </header>
+
+        <!-- Grid System Demo -->
+        <section class="demo-section">
+            <h2>Grid System</h2>
+            <div class="component-demo">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <dt-card>
+                            <h5 class="card-title">Card 1</h5>
+                            <p class="card-text">This is a responsive card using the grid system.</p>
+                        </dt-card>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <dt-card>
+                            <h5 class="card-title">Card 2</h5>
+                            <p class="card-text">Cards stack on mobile, side-by-side on tablet and desktop.</p>
+                        </dt-card>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <dt-card>
+                            <h5 class="card-title">Card 3</h5>
+                            <p class="card-text">Full width on mobile and tablet, 1/3 width on desktop.</p>
+                        </dt-card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons Demo -->
+        <section class="demo-section">
+            <h2>Buttons</h2>
+            <div class="component-demo">
+                <div class="mb-3">
+                    <dt-button variant="primary">Primary</dt-button>
+                    <dt-button variant="secondary">Secondary</dt-button>
+                    <dt-button variant="success">Success</dt-button>
+                    <dt-button variant="danger">Danger</dt-button>
+                    <dt-button variant="warning">Warning</dt-button>
+                    <dt-button variant="info">Info</dt-button>
+                </div>
+                <div class="mb-3">
+                    <dt-button variant="outline-primary">Outline Primary</dt-button>
+                    <dt-button variant="outline-secondary">Outline Secondary</dt-button>
+                    <dt-button variant="outline-success">Outline Success</dt-button>
+                </div>
+                <div class="mb-3">
+                    <dt-button variant="link">Link Button</dt-button>
+                    <dt-button variant="link" disabled>Disabled Link</dt-button>
+                </div>
+                <div class="mb-3">
+                    <dt-button variant="primary" size="sm">Small Button</dt-button>
+                    <dt-button variant="primary">Normal Button</dt-button>
+                    <dt-button variant="primary" size="lg">Large Button</dt-button>
+                </div>
+                <div class="btn-group" role="group">
+                    <dt-button variant="primary">Left</dt-button>
+                    <dt-button variant="primary">Middle</dt-button>
+                    <dt-button variant="primary">Right</dt-button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forms Demo -->
+        <section class="demo-section">
+            <h2>Forms</h2>
+            <div class="component-demo">
+                <dt-form>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="select" class="form-label">Select</label>
+                        <select class="form-control" id="select">
+                            <option>Choose...</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea" class="form-label">Textarea</label>
+                        <textarea class="form-control" id="textarea" rows="3" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkbox">
+                            <label class="form-check-label" for="checkbox">
+                                Check me out
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio" id="radio1">
+                            <label class="form-check-label" for="radio1">
+                                Default radio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="radio" id="radio2">
+                            <label class="form-check-label" for="radio2">
+                                Second default radio
+                            </label>
+                        </div>
+                    </div>
+                    <dt-button variant="primary" type="submit">Submit</dt-button>
+                </dt-form>
+            </div>
+        </section>
+
+        <!-- Cards Demo -->
+        <section class="demo-section">
+            <h2>Cards</h2>
+            <div class="component-demo">
+                <div class="row">
+                    <div class="col-md-6">
+                        <dt-card header="Featured">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <dt-button variant="primary" href="#">Go somewhere</dt-button>
+                        </dt-card>
+                    </div>
+                    <div class="col-md-6">
+                        <dt-card>
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </dt-card>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts Demo -->
+        <section class="demo-section">
+            <h2>Alerts</h2>
+            <div class="component-demo">
+                <p>Les alertes permettent d'afficher des messages importants à l'utilisateur avec différents niveaux de priorité.</p>
+                
+                <h4>Types d'alertes :</h4>
+                <div class="mb-4">
+                    <dt-alert variant="primary">
+                        <strong>Information importante !</strong> Ceci est une alerte primaire avec une icône.
+                    </dt-alert>
+                    
+                    <dt-alert variant="success">
+                        <strong>Succès !</strong> Votre action a été effectuée avec succès.
+                    </dt-alert>
+                    
+                    <dt-alert variant="warning">
+                        <strong>Attention !</strong> Veuillez vérifier vos informations avant de continuer.
+                    </dt-alert>
+                    
+                    <dt-alert variant="danger">
+                        <strong>Erreur !</strong> Une erreur s'est produite lors du traitement de votre demande.
+                    </dt-alert>
+                    
+                    <dt-alert variant="info">
+                        <strong>Astuce :</strong> Vous pouvez utiliser les raccourcis clavier pour naviguer plus rapidement.
+                    </dt-alert>
+                </div>
+                
+                <h4>Alertes avec liens :</h4>
+                <div class="mb-4">
+                    <dt-alert variant="primary" icon="link">
+                        Cette alerte contient un <a href="#" class="alert-link">lien utile</a> pour plus d'informations.
+                    </dt-alert>
+                </div>
+                
+                <h4>Alertes avec titre :</h4>
+                <div class="mb-4">
+                    <dt-alert variant="success" title="Bien joué !">
+                        <p>Vous avez terminé toutes les étapes avec succès. Votre compte est maintenant configuré.</p>
+                        <hr>
+                        <p class="mb-0">Vous pouvez maintenant commencer à utiliser toutes les fonctionnalités.</p>
+                    </dt-alert>
+                </div>
+                
+                <h4>Alertes fermables :</h4>
+                <div class="mb-4">
+                    <dt-alert variant="warning">
+                        <strong>Notification :</strong> Cette alerte peut être fermée en cliquant sur le bouton X.
+                    </dt-alert>
+                    
+                    <dt-alert variant="info" icon="bell">
+                        <strong>Nouvelle fonctionnalité :</strong> Découvrez notre nouveau système de notifications.
+                    </dt-alert>
+                </div>
+                
+                <h4>Alertes avec icônes personnalisées :</h4>
+                <div class="mb-4">
+                    <dt-alert variant="primary" icon="star">
+                        <strong>Fonctionnalité premium :</strong> Accédez à des fonctionnalités avancées avec notre plan premium.
+                    </dt-alert>
+                    
+                    <dt-alert variant="success" icon="heart">
+                        <strong>Merci !</strong> Nous apprécions votre fidélité et votre confiance.
+                    </dt-alert>
+                    
+                    <dt-alert variant="info" icon="download">
+                        <strong>Téléchargement disponible :</strong> Une nouvelle version est disponible pour téléchargement.
+                    </dt-alert>
+                </div>
+                
+                <h4>Code d'exemple :</h4>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Alerte simple --&gt;
+&lt;dt-alert variant="success"&gt;
+  &lt;strong&gt;Succès !&lt;/strong&gt; Votre action a été effectuée.
+&lt;/dt-alert&gt;
+
+&lt;!-- Alerte avec titre --&gt;
+&lt;dt-alert variant="primary" title="Information importante"&gt;
+  &lt;p&gt;Contenu de l'alerte avec plus de détails.&lt;/p&gt;
+&lt;/dt-alert&gt;
+
+&lt;!-- Alerte fermable --&gt;
+&lt;dt-alert variant="warning"&gt;
+  Cette alerte peut être fermée.
+&lt;/dt-alert&gt;
+
+&lt;!-- Alerte avec icône personnalisée --&gt;
+&lt;dt-alert variant="info" icon="download"&gt;
+  Téléchargement disponible
+&lt;/dt-alert&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tooltips Demo -->
+        <section class="demo-section">
+            <h2>Tooltips</h2>
+            <div class="component-demo">
+                <p>Les tooltips permettent d'afficher des informations contextuelles au survol ou au focus d'un élément.</p>
+                
+                <h4>Web Component (Recommandé) :</h4>
+                <div class="mb-4">
+                    <p>Utilisez le web component <code>&lt;dt-tooltip&gt;</code> pour des tooltips animés :</p>
+                    
+                    <div class="mb-3">
+                        <dt-tooltip text="Ceci est un tooltip simple" position="top" theme="dark">
+                            <dt-button variant="primary">Bouton avec tooltip</dt-button>
+                        </dt-tooltip>
+                        
+                        <dt-tooltip text="Tooltip à droite" position="right" theme="primary">
+                            <dt-button variant="secondary">Tooltip droite</dt-button>
+                        </dt-tooltip>
+                        
+                        <dt-tooltip text="Tooltip en bas" position="bottom" theme="success">
+                            <dt-button variant="success">Tooltip bas</dt-button>
+                        </dt-tooltip>
+                        
+                        <dt-tooltip text="Tooltip à gauche" position="left" theme="warning">
+                            <dt-button variant="warning">Tooltip gauche</dt-button>
+                        </dt-tooltip>
+                    </div>
+                </div>
+                
+                <h4>Thèmes disponibles :</h4>
+                <div class="mb-4">
+                    <dt-tooltip text="Thème sombre par défaut" theme="dark">
+                        <span class="tooltip-icon">?</span>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Thème clair" theme="light">
+                        <span class="tooltip-icon">?</span>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Thème primaire" theme="primary">
+                        <span class="tooltip-icon">?</span>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Thème succès" theme="success">
+                        <span class="tooltip-icon">?</span>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Thème avertissement" theme="warning">
+                        <span class="tooltip-icon">?</span>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Thème danger" theme="danger">
+                        <span class="tooltip-icon">?</span>
+                    </dt-tooltip>
+                </div>
+                
+                <h4>Avec icônes :</h4>
+                <div class="mb-4">
+                    <dt-tooltip text="Informations sur cet élément" position="top">
+                        <dt-icon name="info" size="lg" color="primary"></dt-icon>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Aide contextuelle" position="top">
+                        <dt-icon name="help" size="lg" color="info"></dt-icon>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Paramètres avancés" position="top">
+                        <dt-icon name="settings" size="lg" color="secondary"></dt-icon>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Notifications importantes" position="top">
+                        <dt-icon name="bell" size="lg" color="warning"></dt-icon>
+                    </dt-tooltip>
+                </div>
+                
+                <h4>Délais personnalisés :</h4>
+                <div class="mb-4">
+                    <dt-tooltip text="Apparition rapide" delay="200" theme="primary">
+                        <dt-button variant="outline-primary">Rapide (200ms)</dt-button>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Apparition normale" delay="500" theme="success">
+                        <dt-button variant="outline-success">Normal (500ms)</dt-button>
+                    </dt-tooltip>
+                    
+                    <dt-tooltip text="Apparition lente" delay="1000" theme="warning">
+                        <dt-button variant="outline-warning">Lent (1000ms)</dt-button>
+                    </dt-tooltip>
+                </div>
+                
+                <h4>Tooltips avec contenu long :</h4>
+                <div class="mb-4">
+                    <dt-tooltip text="Ceci est un tooltip avec beaucoup de texte pour démontrer comment il gère le retour à la ligne et la largeur maximale." position="top" theme="dark">
+                        <dt-button variant="info">Tooltip long</dt-button>
+                    </dt-tooltip>
+                </div>
+                
+                <h4>Code d'exemple :</h4>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Tooltip simple --&gt;
+&lt;dt-tooltip text="Ceci est un tooltip" position="top" theme="dark"&gt;
+  &lt;dt-button variant="primary"&gt;Bouton&lt;/dt-button&gt;
+&lt;/dt-tooltip&gt;
+
+&lt;!-- Tooltip avec icône --&gt;
+&lt;dt-tooltip text="Informations" position="right" theme="primary"&gt;
+  &lt;dt-icon name="info" size="lg"&gt;&lt;/dt-icon&gt;
+&lt;/dt-tooltip&gt;
+
+&lt;!-- Tooltip avec délai personnalisé --&gt;
+&lt;dt-tooltip text="Apparition rapide" delay="200"&gt;
+  &lt;span class="tooltip-icon"&gt;?&lt;/span&gt;
+&lt;/dt-tooltip&gt;
+
+&lt;!-- Création programmatique --&gt;
+const tooltip = DtTooltip.create('Texte du tooltip', {
+  position: 'bottom',
+  theme: 'success',
+  delay: 300
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Box Components Demo -->
+        <section class="demo-section">
+            <h2>Box Components</h2>
+            <div class="component-demo">
+                <p>Le composant <code>&lt;dt-box&gt;</code> est la base pour créer des alertes, toasts et autres composants de notification.</p>
+                
+                <h4>Composant de base (dt-box) :</h4>
+                <div class="mb-4">
+                    <dt-box variant="primary" icon="info" title="Information">
+                        Ceci est un box de base avec titre et icône.
+                    </dt-box>
+                    
+                    <dt-box variant="success" icon="check" dismissible>
+                        Box de succès avec bouton de fermeture.
+                    </dt-box>
+                    
+                    <dt-box variant="warning" size="sm">
+                        Box d'avertissement en petite taille.
+                    </dt-box>
+                    
+                    <dt-box variant="danger" size="lg" title="Erreur critique">
+                        Box d'erreur en grande taille avec titre.
+                    </dt-box>
+                </div>
+                
+                <h4>Composant Alert (dt-alert) :</h4>
+                <div class="mb-4">
+                    <dt-alert variant="primary">
+                        Alerte primaire avec icône automatique.
+                    </dt-alert>
+                    
+                    <dt-alert variant="success">
+                        Alerte de succès fermable.
+                    </dt-alert>
+                    
+                    <dt-alert variant="warning">
+                        Alerte d'avertissement avec icône automatique.
+                    </dt-alert>
+                    
+                    <dt-alert variant="danger">
+                        Alerte d'erreur avec icône automatique.
+                    </dt-alert>
+                </div>
+                
+                <h4>Composant Toast (dt-toast) :</h4>
+                <div class="mb-4">
+                    <p>Les toasts apparaissent en overlay et se ferment automatiquement :</p>
+                    
+                    <dt-button variant="primary" onclick="showToast('success', 'Opération réussie !')">
+                        Toast Succès
+                    </dt-button>
+                    
+                    <dt-button variant="warning" onclick="showToast('warning', 'Attention ! Vérifiez vos données.')">
+                        Toast Avertissement
+                    </dt-button>
+                    
+                    <dt-button variant="danger" onclick="showToast('danger', 'Erreur lors du traitement.')">
+                        Toast Erreur
+                    </dt-button>
+                    
+                    <dt-button variant="info" onclick="showToast('info', 'Information importante.')">
+                        Toast Info
+                    </dt-button>
+                </div>
+                
+                <h4>Code d'exemple :</h4>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Box de base --&gt;
+&lt;dt-box variant="primary" icon="info" title="Titre" dismissible&gt;
+  Contenu du box
+&lt;/dt-box&gt;
+
+&lt;!-- Alert dérivé --&gt;
+&lt;dt-alert variant="success" dismissible&gt;
+  Message de succès
+&lt;/dt-alert&gt;
+
+&lt;!-- Toast programmatique --&gt;
+&lt;script&gt;
+DtToast.show('Message de toast', {
+  variant: 'success',
+  duration: 3000,
+  position: 'top-right'
+});
+&lt;/script&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Demo -->
+        <section class="demo-section">
+            <h2>Typography</h2>
+            <div class="component-demo">
+                <h1>h1. Bootstrap heading</h1>
+                <h2>h2. Bootstrap heading</h2>
+                <h3>h3. Bootstrap heading</h3>
+                <h4>h4. Bootstrap heading</h4>
+                <h5>h5. Bootstrap heading</h5>
+                <h6>h6. Bootstrap heading</h6>
+                
+                <p class="lead">This is a lead paragraph. It stands out from regular paragraphs.</p>
+                
+                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                <p><u>This line of text will render as underlined</u></p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p><strong>This line rendered as bold text.</strong></p>
+                <p><em>This line rendered as italicized text.</em></p>
+                
+                <blockquote class="blockquote">
+                    <p>A well-known quote, contained in a blockquote element.</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Icons Demo -->
+        <section class="demo-section">
+            <h2>Icons</h2>
+            <div class="component-demo">
+                <p>Le toolkit inclut un système d'icônes SVG complet avec des classes utilitaires et un web component.</p>
+                
+                <h4>Web Component (Recommandé) :</h4>
+                <div class="mb-4">
+                    <p>Utilisez le web component <code>&lt;dt-icon&gt;</code> pour une gestion simplifiée des icônes :</p>
+                    
+                    <div class="mb-3">
+                        <dt-icon name="plus" size="lg" color="primary"></dt-icon>
+                        <dt-icon name="check" size="lg" color="success"></dt-icon>
+                        <dt-icon name="x" size="lg" color="danger"></dt-icon>
+                        <dt-icon name="heart" size="lg" color="danger"></dt-icon>
+                        <dt-icon name="star" size="lg" color="warning"></dt-icon>
+                        <span class="ml-2 text-muted">Icônes avec web component</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-icon name="refresh" size="md" class="icon-spin"></dt-icon>
+                        <dt-icon name="heart" size="md" class="icon-pulse"></dt-icon>
+                        <dt-icon name="star" size="md" class="icon-bounce"></dt-icon>
+                        <span class="ml-2 text-muted">Avec animations</span>
+                    </div>
+                </div>
+                
+                <h4>Tailles d'icônes :</h4>
+                <div class="mb-4">
+                    <dt-icon name="star" size="xs"></dt-icon>
+                    <dt-icon name="star" size="sm"></dt-icon>
+                    <dt-icon name="star" size="md"></dt-icon>
+                    <dt-icon name="star" size="lg"></dt-icon>
+                    <dt-icon name="star" size="xl"></dt-icon>
+                    <dt-icon name="star" size="2xl"></dt-icon>
+                    <dt-icon name="star" size="3xl"></dt-icon>
+                    <span class="ml-2 text-muted">xs, sm, md, lg, xl, 2xl, 3xl</span>
+                </div>
+                
+                <h4>Couleurs d'icônes :</h4>
+                <div class="mb-4">
+                    <dt-icon name="star" color="primary"></dt-icon>
+                    <dt-icon name="star" color="success"></dt-icon>
+                    <dt-icon name="star" color="danger"></dt-icon>
+                    <dt-icon name="star" color="warning"></dt-icon>
+                    <dt-icon name="star" color="info"></dt-icon>
+                    <dt-icon name="star" color="muted"></dt-icon>
+                </div>
+                
+                <h4>Boutons avec icônes (Web Component) :</h4>
+                <div class="mb-4">
+                    <dt-button variant="primary" icon="plus">Ajouter</dt-button>
+                    <dt-button variant="success" icon="check">Valider</dt-button>
+                    <dt-button variant="danger" icon="x">Supprimer</dt-button>
+                </div>
+                
+                <h4>Boutons icône uniquement :</h4>
+                <div class="mb-4">
+                    <dt-button variant="primary" icon="plus" title="Ajouter"></dt-button>
+                    <dt-button variant="success" icon="check" title="Valider"></dt-button>
+                    <dt-button variant="danger" icon="x" title="Supprimer"></dt-button>
+                    <dt-button variant="info" icon="search" title="Rechercher"></dt-button>
+                </div>
+                
+                <h4>Icônes avec texte :</h4>
+                <div class="mb-4">
+                    <dt-button variant="primary" icon="home">Accueil</dt-button>
+                    <dt-button variant="success" icon="user">Profil</dt-button>
+                    <dt-button variant="info" icon="mail">Messages</dt-button>
+                </div>
+                
+                <h4>Grille d'icônes disponibles :</h4>
+                <div class="icon-grid">
+                    <div class="icon-grid-item">
+                        <dt-icon name="plus"></dt-icon>
+                        <div class="icon-name">Plus</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="minus"></dt-icon>
+                        <div class="icon-name">Moins</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="check"></dt-icon>
+                        <div class="icon-name">Coche</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="x"></dt-icon>
+                        <div class="icon-name">X</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="arrow-right"></dt-icon>
+                        <div class="icon-name">Flèche droite</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="arrow-left"></dt-icon>
+                        <div class="icon-name">Flèche gauche</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="arrow-up"></dt-icon>
+                        <div class="icon-name">Flèche haut</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="arrow-down"></dt-icon>
+                        <div class="icon-name">Flèche bas</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="search"></dt-icon>
+                        <div class="icon-name">Recherche</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="menu"></dt-icon>
+                        <div class="icon-name">Menu</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="home"></dt-icon>
+                        <div class="icon-name">Accueil</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="user"></dt-icon>
+                        <div class="icon-name">Utilisateur</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="settings"></dt-icon>
+                        <div class="icon-name">Paramètres</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="heart"></dt-icon>
+                        <div class="icon-name">Cœur</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="star"></dt-icon>
+                        <div class="icon-name">Étoile</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="download"></dt-icon>
+                        <div class="icon-name">Télécharger</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="upload"></dt-icon>
+                        <div class="icon-name">Téléverser</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="mail"></dt-icon>
+                        <div class="icon-name">Mail</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="phone"></dt-icon>
+                        <div class="icon-name">Téléphone</div>
+                    </div>
+                    <div class="icon-grid-item">
+                        <dt-icon name="calendar"></dt-icon>
+                        <div class="icon-name">Calendrier</div>
+                    </div>
+                </div>
+                
+                <h4>Code d'exemple :</h4>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Icône simple --&gt;
+&lt;dt-icon name="plus" size="lg" color="primary"&gt;&lt;/dt-icon&gt;
+
+&lt;!-- Avec animation --&gt;
+&lt;dt-icon name="refresh" class="icon-spin"&gt;&lt;/dt-icon&gt;
+
+&lt;!-- Dans un bouton --&gt;
+&lt;dt-button variant="primary" icon="plus"&gt;
+  Ajouter
+&lt;/dt-button&gt;
+
+&lt;!-- JavaScript --&gt;
+const icon = dt-icon.create('heart', { 
+  size: 'lg', 
+  color: 'danger' 
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark Theme Demo -->
+        <section class="demo-section">
+            <h2>Dark Theme</h2>
+            <div class="component-demo">
+                <p>Le toolkit supporte automatiquement le thème sombre avec plusieurs options :</p>
+                <ul>
+                    <li><strong>Détection automatique</strong> : Respecte les préférences système</li>
+                    <li><strong>Basculement manuel</strong> : Bouton de thème dans le header</li>
+                    <li><strong>Persistance</strong> : Sauvegarde le choix dans localStorage</li>
+                    <li><strong>Transitions fluides</strong> : Animations lors du changement</li>
+                </ul>
+                
+                <div class="mt-4">
+                    <h4>Classes utilitaires pour le thème :</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-theme-primary text-theme-primary border border-theme-primary rounded">
+                                <strong>.bg-theme-primary</strong><br>
+                                <small>.text-theme-primary</small><br>
+                                <small>.border-theme-primary</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-theme-secondary text-theme-secondary border border-theme-secondary rounded">
+                                <strong>.bg-theme-secondary</strong><br>
+                                <small>.text-theme-secondary</small><br>
+                                <small>.border-theme-secondary</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h4>Composants adaptatifs :</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <dt-card>
+                                <h5 class="card-title">Card adaptative</h5>
+                                <p class="card-text">S'adapte automatiquement au thème</p>
+                                <dt-button variant="primary">Action</dt-button>
+                            </dt-card>
+                        </div>
+                        <div class="col-md-4">
+                            <dt-alert variant="info">
+                                <strong>Info!</strong> Cette alerte s'adapte au thème.
+                            </dt-alert>
+                        </div>
+                        <div class="col-md-4">
+                            <dt-form>
+                                <div class="form-group">
+                                    <label class="form-label">Input adaptatif</label>
+                                    <input type="text" class="form-control" placeholder="S'adapte au thème">
+                                </div>
+                            </dt-form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utilities Demo -->
+        <section class="demo-section">
+            <h2>Utilities</h2>
+            <div class="component-demo">
+                <h4>Spacing</h4>
+                <div class="p-3 bg-primary text-white mb-3">Padding 3</div>
+                <div class="m-3 bg-secondary text-white">Margin 3</div>
+                
+                <h4 class="mt-4">Colors</h4>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="p-3 bg-primary text-white text-center">Primary</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="p-3 bg-secondary text-white text-center">Secondary</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="p-3 bg-success text-white text-center">Success</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="p-3 bg-danger text-white text-center">Danger</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="p-3 bg-warning text-dark text-center">Warning</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="p-3 bg-info text-white text-center">Info</div>
+                    </div>
+                </div>
+                
+                <h4 class="mt-4">Flexbox</h4>
+                <div class="d-flex justify-content-between align-items-center p-3 bg-light">
+                    <div>Flex item 1</div>
+                    <div>Flex item 2</div>
+                    <div>Flex item 3</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-5 text-center text-muted">
+            <p>&copy; 2024 Design Toolkit. Built with modern CSS and best practices.</p>
+        </footer>
+    </div>
+    
+    <script src="src/js/icon-registry.js"></script>
+    <script src="src/js/icon-component.js"></script>
+    <script src="src/js/tooltip-component.js"></script>
+    <script src="src/js/box-component.js"></script>
+    <script src="src/js/alert-component.js"></script>
+    <script src="src/js/toast-component.js"></script>
+    <script src="src/js/card-component.js"></script>
+    <script src="src/js/button-component.js"></script>
+    <script src="src/js/form-component.js"></script>
+    <script src="src/js/theme-toggle-component.js"></script>
+    
+    <script>
+        // Fonction pour afficher les toasts
+        function showToast(variant, message) {
+            DtToast.show(message, {
+                variant: variant,
+                duration: 4000,
+                position: 'top-right'
+            });
+        }
+        
+        // Exemple d'utilisation avancée
+        function showCustomToast() {
+            const toast = DtToast.create({
+                variant: 'primary',
+                duration: 6000,
+                position: 'bottom-center',
+                content: 'Toast personnalisé avec durée étendue'
+            });
+            document.body.appendChild(toast);
+        }
+    </script>
+</body>
+</html>

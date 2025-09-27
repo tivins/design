@@ -1,0 +1,95 @@
+// Design Toolkit - Text Utilities
+// Text alignment, transformation, and styling utilities
+
+// Text alignment
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+.text-justify { text-align: justify !important; }
+
+// Text transform
+.text-lowercase { text-transform: lowercase !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Font weight
+.font-weight-light { font-weight: var(--font-weight-light) !important; }
+.font-weight-normal { font-weight: var(--font-weight-normal) !important; }
+.font-weight-medium { font-weight: var(--font-weight-medium) !important; }
+.font-weight-semibold { font-weight: var(--font-weight-semibold) !important; }
+.font-weight-bold { font-weight: var(--font-weight-bold) !important; }
+
+// Font style
+.font-italic { font-style: italic !important; }
+.font-normal { font-style: normal !important; }
+
+// Text decoration
+.text-decoration-none { text-decoration: none !important; }
+.text-decoration-underline { text-decoration: underline !important; }
+.text-decoration-line-through { text-decoration: line-through !important; }
+
+// Font size
+.font-size-xs { font-size: 0.75rem !important; }
+.font-size-sm { font-size: var(--font-size-sm) !important; }
+.font-size-base { font-size: var(--font-size-base) !important; }
+.font-size-lg { font-size: var(--font-size-lg) !important; }
+.font-size-xl { font-size: var(--font-size-xl) !important; }
+.font-size-2xl { font-size: var(--font-size-2xl) !important; }
+.font-size-3xl { font-size: var(--font-size-3xl) !important; }
+
+// Line height
+.line-height-xs { line-height: 1 !important; }
+.line-height-sm { line-height: var(--line-height-sm) !important; }
+.line-height-base { line-height: var(--line-height-base) !important; }
+.line-height-lg { line-height: var(--line-height-lg) !important; }
+
+// Letter spacing
+.letter-spacing-tight { letter-spacing: -0.025em !important; }
+.letter-spacing-normal { letter-spacing: 0 !important; }
+.letter-spacing-wide { letter-spacing: 0.025em !important; }
+.letter-spacing-wider { letter-spacing: 0.05em !important; }
+.letter-spacing-widest { letter-spacing: 0.1em !important; }
+
+// Word break
+.word-break-normal { word-break: normal !important; }
+.word-break-words { word-break: break-word !important; }
+.word-break-all { word-break: break-all !important; }
+
+// White space
+.white-space-normal { white-space: normal !important; }
+.white-space-nowrap { white-space: nowrap !important; }
+.white-space-pre { white-space: pre !important; }
+.white-space-pre-line { white-space: pre-line !important; }
+.white-space-pre-wrap { white-space: pre-wrap !important; }
+
+// Text overflow
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Responsive text alignment
+@media (min-width: 576px) {
+  .text-sm-left { text-align: left !important; }
+  .text-sm-right { text-align: right !important; }
+  .text-sm-center { text-align: center !important; }
+}
+
+@media (min-width: 768px) {
+  .text-md-left { text-align: left !important; }
+  .text-md-right { text-align: right !important; }
+  .text-md-center { text-align: center !important; }
+}
+
+@media (min-width: 992px) {
+  .text-lg-left { text-align: left !important; }
+  .text-lg-right { text-align: right !important; }
+  .text-lg-center { text-align: center !important; }
+}
+
+@media (min-width: 1200px) {
+  .text-xl-left { text-align: left !important; }
+  .text-xl-right { text-align: right !important; }
+  .text-xl-center { text-align: center !important; }
+}

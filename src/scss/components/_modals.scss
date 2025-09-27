@@ -1,0 +1,194 @@
+// Design Toolkit - Modals
+// Modal component for overlays and dialogs
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-modal);
+  display: none;
+  overflow: hidden;
+  outline: 0;
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: var(--spacing-md);
+  pointer-events: none;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform var(--transition-normal) ease-out;
+  transform: translate(0, -50px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal.fade .modal-dialog {
+    transition: none;
+  }
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - (var(--spacing-md) * 2));
+}
+
+.modal-dialog-scrollable {
+  display: flex;
+  max-height: calc(100% - (var(--spacing-md) * 2));
+  
+  .modal-content {
+    max-height: calc(100vh - (var(--spacing-md) * 2));
+    overflow: hidden;
+  }
+  
+  .modal-body {
+    overflow-y: auto;
+  }
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-modal-backdrop);
+  background-color: var(--black);
+  
+  &.fade {
+    opacity: 0;
+  }
+  
+  &.show {
+    opacity: 0.5;
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--gray-300);
+  border-top-left-radius: calc(var(--border-radius-lg) - 1px);
+  border-top-right-radius: calc(var(--border-radius-lg) - 1px);
+  
+  .close {
+    padding: var(--spacing-lg);
+    margin: calc(var(--spacing-lg) * -1) calc(var(--spacing-lg) * -1) calc(var(--spacing-lg) * -1) auto;
+  }
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: var(--line-height-base);
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: var(--spacing-lg);
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--gray-300);
+  border-bottom-right-radius: calc(var(--border-radius-lg) - 1px);
+  border-bottom-left-radius: calc(var(--border-radius-lg) - 1px);
+  
+  > :not(:first-child) {
+    margin-left: var(--spacing-sm);
+  }
+  
+  > :not(:last-child) {
+    margin-right: var(--spacing-sm);
+  }
+}
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+// Modal sizes
+.modal-sm {
+  max-width: 300px;
+}
+
+.modal-lg {
+  max-width: 800px;
+}
+
+.modal-xl {
+  max-width: 1140px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: var(--spacing-xl) auto;
+  }
+  
+  .modal-dialog-centered {
+    min-height: calc(100% - (var(--spacing-xl) * 2));
+  }
+  
+  .modal-dialog-scrollable {
+    max-height: calc(100% - (var(--spacing-xl) * 2));
+    
+    .modal-content {
+      max-height: calc(100vh - (var(--spacing-xl) * 2));
+    }
+  }
+  
+  .modal-sm {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 1140px;
+  }
+}
