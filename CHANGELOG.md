@@ -5,6 +5,112 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.20.0] - 2024-12-19
+
+### Added
+- **New `dt-modal` Web Component**: Complete modal system based on dt-card architecture
+  - **Backdrop with Blur Effect**: Modal appears over a blurred background
+  - **Configurable Elements**: All elements can be enabled/disabled independently
+    - Close button (configurable with `show-close-button` attribute)
+    - Title (configurable with `title` attribute)
+    - Header section (configurable with `show-header` attribute)
+    - Footer section (configurable with `show-footer` attribute)
+  - **Multiple Size Variants**: sm, md, lg, xl, full
+  - **Multiple Style Variants**: primary, success, warning, danger, info
+  - **Interactive Features**:
+    - Click outside to close (configurable with `backdrop-closable` attribute)
+    - Escape key to close
+    - Smooth animations with slide-in effect
+    - Body scroll prevention when modal is open
+  - **Responsive Design**: Adapts to mobile screens with proper sizing
+  - **Dark Theme Support**: Full dark theme integration with proper colors
+  - **Shadow DOM Implementation**: Encapsulated styling and behavior
+  - **Public API Methods**: open(), close(), toggle(), setTitle(), setSize(), etc.
+  - **Event System**: Custom events for modal-open and modal-close
+  - **Slot Support**: Footer content via `slot="footer"`
+
+### Enhanced
+- **Modal Demo Section**: Added comprehensive modal examples in index.html
+  - Basic modal with title and close button
+  - Modal with footer containing action buttons
+  - Large modal for complex content
+  - Modal without header for simple confirmations
+  - Interactive buttons to test all modal variants
+  - Complete HTML code examples with copy functionality
+
+### Technical Details
+- Created `src/js/modal-component.js` with full Web Component implementation
+- Created `src/scss/components/_modals.scss` with comprehensive styling
+- Added modal component to main SCSS import chain
+- Implemented proper event handling for all interactions
+- Added automated testing with Playwright for modal functionality
+- Component supports attributes: `open`, `title`, `show-close-button`, `show-header`, `show-footer`, `size`, `variant`, `backdrop-closable`
+- Static factory method `DtModal.create()` for programmatic creation
+
+## [1.19.0] - 2024-12-19
+
+### Added
+- **Comprehensive HTML Code Examples**: Added interactive `dt-code-example` components to all component sections
+  - **Grid System**: Responsive grid layout examples with detailed comments
+  - **Buttons**: Complete button variants, sizes, and grouping examples
+  - **Forms**: Full form component with all input types and validation
+  - **Cards**: Card components with headers, subtitles, and links
+  - **Box Components**: Box, Alert, and Toast component examples with JavaScript
+  - **Icons**: Icon system with sizes, colors, animations, and button integration
+  - **Tooltips**: Tooltip positioning, themes, delays, and programmatic creation
+  - **Alerts**: Alert variants with custom icons and dismissible functionality
+
+### Enhanced
+- **Interactive Code Display**: All examples now feature:
+  - Copy-to-clipboard functionality with visual feedback
+  - Syntax highlighting with language specification
+  - Customizable titles and styling
+  - Dark theme support
+  - Responsive design with proper overflow handling
+
+### Technical Details
+- Replaced all static HTML code blocks with interactive `dt-code-example` components
+- Added comprehensive examples covering all component features and variations
+- Improved user experience with copyable code snippets
+- Enhanced documentation with practical, copy-paste ready examples
+- Added automated testing for all 8 code example components
+
+## [1.18.1] - 2024-12-19
+
+### Fixed
+- **dt-code-example component**: Fixed double HTML entity encoding issue
+  - Content is now properly encoded only once instead of twice
+  - Copy functionality now preserves correct HTML formatting
+  - Improved `escapeHtml()` method to detect already-encoded content
+
+### Technical Details
+- Modified `escapeHtml()` method to check for existing HTML entities before encoding
+- Updated HTML content in `index.html` to use proper HTML tags instead of entities
+- Added encoding verification test to prevent regression
+
+## [1.18.0] - 2024-12-19
+
+### Added
+- **New `dt-code-example` Web Component**: Interactive code display component with copy functionality
+  - Supports syntax highlighting with language specification
+  - Copy-to-clipboard functionality with visual feedback
+  - Customizable title and styling
+  - Dark theme support
+  - Responsive design with proper overflow handling
+
+### Changed
+- **index.html**: Replaced static HTML code blocks with interactive `dt-code-example` component
+  - Alert examples now use the new component for better user experience
+  - Added copy functionality for code snippets
+  - Improved code presentation with syntax highlighting
+
+### Technical Details
+- Created `src/js/code-example-component.js` with full Web Component implementation
+- Added proper event handling for copy functionality
+- Implemented fallback clipboard API for older browsers
+- Added comprehensive styling with CSS custom properties for theming
+- Component supports attributes: `language`, `title`, `copyable`
+
 ## [1.17.0] - 2024-12-19
 
 ### Changed

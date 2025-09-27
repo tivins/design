@@ -93,6 +93,36 @@
                         </dt-card>
                     </div>
                 </div>
+                
+                <h4>Code d'exemple :</h4>
+                <dt-code-example language="html" title="Système de grille responsive" copyable>
+<!-- Container avec système de grille responsive -->
+<div class="row">
+    <!-- Colonne responsive : 12/12 mobile, 6/12 tablet, 4/12 desktop -->
+    <div class="col-12 col-md-6 col-lg-4">
+        <dt-card>
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text">This is a responsive card using the grid system.</p>
+        </dt-card>
+    </div>
+    
+    <!-- Colonne responsive : 12/12 mobile, 6/12 tablet, 4/12 desktop -->
+    <div class="col-12 col-md-6 col-lg-4">
+        <dt-card>
+            <h5 class="card-title">Card 2</h5>
+            <p class="card-text">Cards stack on mobile, side-by-side on tablet and desktop.</p>
+        </dt-card>
+    </div>
+    
+    <!-- Colonne responsive : 12/12 mobile, 12/12 tablet, 4/12 desktop -->
+    <div class="col-12 col-md-12 col-lg-4">
+        <dt-card>
+            <h5 class="card-title">Card 3</h5>
+            <p class="card-text">Full width on mobile and tablet, 1/3 width on desktop.</p>
+        </dt-card>
+    </div>
+</div>
+                </dt-code-example>
             </div>
         </section>
 
@@ -127,6 +157,98 @@
                     <dt-button variant="primary">Middle</dt-button>
                     <dt-button variant="primary">Right</dt-button>
                 </div>
+                
+                <h4>Code d'exemple :</h4>
+                <dt-code-example language="html" title="Composants de boutons" copyable>
+<!-- Boutons de base avec différentes variantes -->
+<div class="mb-3">
+    <dt-button variant="primary">Primary</dt-button>
+    <dt-button variant="secondary">Secondary</dt-button>
+    <dt-button variant="success">Success</dt-button>
+    <dt-button variant="danger">Danger</dt-button>
+    <dt-button variant="warning">Warning</dt-button>
+    <dt-button variant="info">Info</dt-button>
+</div>
+
+<!-- Boutons outline -->
+<div class="mb-3">
+    <dt-button variant="outline-primary">Outline Primary</dt-button>
+    <dt-button variant="outline-secondary">Outline Secondary</dt-button>
+    <dt-button variant="outline-success">Outline Success</dt-button>
+</div>
+
+<!-- Boutons lien -->
+<div class="mb-3">
+    <dt-button variant="link">Link Button</dt-button>
+    <dt-button variant="link" disabled>Disabled Link</dt-button>
+</div>
+
+<!-- Boutons avec différentes tailles -->
+<div class="mb-3">
+    <dt-button variant="primary" size="sm">Small Button</dt-button>
+    <dt-button variant="primary">Normal Button</dt-button>
+    <dt-button variant="primary" size="lg">Large Button</dt-button>
+</div>
+
+<!-- Groupe de boutons -->
+<div class="btn-group" role="group">
+    <dt-button variant="primary">Left</dt-button>
+    <dt-button variant="primary">Middle</dt-button>
+    <dt-button variant="primary">Right</dt-button>
+</div>
+                </dt-code-example>
+            </div>
+        </section>
+
+        <!-- Modal Demo -->
+        <section class="demo-section">
+            <h2>Modals</h2>
+            <div class="component-demo">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Basic Modal</h4>
+                        <dt-button variant="primary" onclick="openBasicModal()">Open Basic Modal</dt-button>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Modal with Footer</h4>
+                        <dt-button variant="success" onclick="openModalWithFooter()">Open Modal with Footer</dt-button>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h4>Large Modal</h4>
+                        <dt-button variant="info" onclick="openLargeModal()">Open Large Modal</dt-button>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Modal without Header</h4>
+                        <dt-button variant="warning" onclick="openModalWithoutHeader()">Open Modal without Header</dt-button>
+                    </div>
+                </div>
+                
+                <h4>Code d'exemple :</h4>
+                <dt-code-example language="html" title="Composant Modal" copyable>
+<!-- Modal basique -->
+<dt-modal id="exampleModal1" title="Basic Modal">
+    <p>This is a basic modal with a title and close button.</p>
+    <p>You can put any content here.</p>
+</dt-modal>
+
+<!-- Modal avec footer -->
+<dt-modal id="exampleModal2" title="Modal with Footer" size="lg">
+    <p>This modal has a footer section for action buttons.</p>
+    <div slot="footer">
+        <dt-button variant="secondary" onclick="closeModal('exampleModal2')">Cancel</dt-button>
+        <dt-button variant="primary">Save Changes</dt-button>
+    </div>
+</dt-modal>
+
+<!-- Modal sans header -->
+<dt-modal id="exampleModal3" show-header="false" size="sm">
+    <p>This modal doesn't have a header.</p>
+    <p>The close button is still available.</p>
+</dt-modal>
+                </dt-code-example>
             </div>
         </section>
 
@@ -180,6 +302,70 @@
                     </div>
                     <dt-button variant="primary" type="submit">Submit</dt-button>
                 </dt-form>
+                
+                <h4>Code d'exemple :</h4>
+                <dt-code-example language="html" title="Composant de formulaire" copyable>
+<!-- Formulaire complet avec différents types de champs -->
+<dt-form>
+    <!-- Champ email -->
+    <div class="form-group">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    
+    <!-- Champ mot de passe -->
+    <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    
+    <!-- Liste déroulante -->
+    <div class="form-group">
+        <label for="select" class="form-label">Select</label>
+        <select class="form-control" id="select">
+            <option>Choose...</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+        </select>
+    </div>
+    
+    <!-- Zone de texte -->
+    <div class="form-group">
+        <label for="textarea" class="form-label">Textarea</label>
+        <textarea class="form-control" id="textarea" rows="3" placeholder="Enter your message"></textarea>
+    </div>
+    
+    <!-- Case à cocher -->
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="checkbox">
+            <label class="form-check-label" for="checkbox">
+                Check me out
+            </label>
+        </div>
+    </div>
+    
+    <!-- Boutons radio -->
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radio" id="radio1">
+            <label class="form-check-label" for="radio1">
+                Default radio
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="radio" id="radio2">
+            <label class="form-check-label" for="radio2">
+                Second default radio
+            </label>
+        </div>
+    </div>
+    
+    <!-- Bouton de soumission -->
+    <dt-button variant="primary" type="submit">Submit</dt-button>
+</dt-form>
+                </dt-code-example>
             </div>
         </section>
 
@@ -205,6 +391,32 @@
                         </dt-card>
                     </div>
                 </div>
+                
+                <h4>Code d'exemple :</h4>
+                <dt-code-example language="html" title="Composants de cartes" copyable>
+<!-- Cartes avec différentes configurations -->
+<div class="row">
+    <!-- Carte avec en-tête et bouton -->
+    <div class="col-md-6">
+        <dt-card header="Featured">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <dt-button variant="primary" href="#">Go somewhere</dt-button>
+        </dt-card>
+    </div>
+    
+    <!-- Carte avec sous-titre et liens -->
+    <div class="col-md-6">
+        <dt-card>
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </dt-card>
+    </div>
+</div>
+                </dt-code-example>
             </div>
         </section>
 
@@ -280,27 +492,27 @@
                 </div>
                 
                 <h4>Code d'exemple :</h4>
-                <div class="code-example">
-                    <pre><code>&lt;!-- Alerte simple --&gt;
-&lt;dt-alert variant="success"&gt;
-  &lt;strong&gt;Succès !&lt;/strong&gt; Votre action a été effectuée.
-&lt;/dt-alert&gt;
+                <dt-code-example language="html" title="Exemples d'utilisation des alertes" copyable>
+<!-- Alerte simple -->
+<dt-alert variant="success">
+  <strong>Succès !</strong> Votre action a été effectuée.
+</dt-alert>
 
-&lt;!-- Alerte avec titre --&gt;
-&lt;dt-alert variant="primary" title="Information importante"&gt;
-  &lt;p&gt;Contenu de l'alerte avec plus de détails.&lt;/p&gt;
-&lt;/dt-alert&gt;
+<!-- Alerte avec titre -->
+<dt-alert variant="primary" title="Information importante">
+  <p>Contenu de l'alerte avec plus de détails.</p>
+</dt-alert>
 
-&lt;!-- Alerte fermable --&gt;
-&lt;dt-alert variant="warning"&gt;
+<!-- Alerte fermable -->
+<dt-alert variant="warning">
   Cette alerte peut être fermée.
-&lt;/dt-alert&gt;
+</dt-alert>
 
-&lt;!-- Alerte avec icône personnalisée --&gt;
-&lt;dt-alert variant="info" icon="download"&gt;
+<!-- Alerte avec icône personnalisée -->
+<dt-alert variant="info" icon="download">
   Téléchargement disponible
-&lt;/dt-alert&gt;</code></pre>
-                </div>
+</dt-alert>
+                </dt-code-example>
             </div>
         </section>
 
@@ -402,29 +614,73 @@
                 </div>
                 
                 <h4>Code d'exemple :</h4>
-                <div class="code-example">
-                    <pre><code>&lt;!-- Tooltip simple --&gt;
-&lt;dt-tooltip text="Ceci est un tooltip" position="top" theme="dark"&gt;
-  &lt;dt-button variant="primary"&gt;Bouton&lt;/dt-button&gt;
-&lt;/dt-tooltip&gt;
+                <dt-code-example language="html" title="Composants de tooltips" copyable>
+<!-- Tooltip simple -->
+<dt-tooltip text="Ceci est un tooltip" position="top" theme="dark">
+    <dt-button variant="primary">Bouton</dt-button>
+</dt-tooltip>
 
-&lt;!-- Tooltip avec icône --&gt;
-&lt;dt-tooltip text="Informations" position="right" theme="primary"&gt;
-  &lt;dt-icon name="info" size="lg"&gt;&lt;/dt-icon&gt;
-&lt;/dt-tooltip&gt;
+<!-- Tooltip avec différentes positions -->
+<dt-tooltip text="Tooltip en haut" position="top">
+    <dt-button variant="secondary">Top</dt-button>
+</dt-tooltip>
 
-&lt;!-- Tooltip avec délai personnalisé --&gt;
-&lt;dt-tooltip text="Apparition rapide" delay="200"&gt;
-  &lt;span class="tooltip-icon"&gt;?&lt;/span&gt;
-&lt;/dt-tooltip&gt;
+<dt-tooltip text="Tooltip en bas" position="bottom">
+    <dt-button variant="secondary">Bottom</dt-button>
+</dt-tooltip>
 
-&lt;!-- Création programmatique --&gt;
+<dt-tooltip text="Tooltip à gauche" position="left">
+    <dt-button variant="secondary">Left</dt-button>
+</dt-tooltip>
+
+<dt-tooltip text="Tooltip à droite" position="right">
+    <dt-button variant="secondary">Right</dt-button>
+</dt-tooltip>
+
+<!-- Tooltip avec différents thèmes -->
+<dt-tooltip text="Thème sombre" theme="dark">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<dt-tooltip text="Thème clair" theme="light">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<dt-tooltip text="Thème primaire" theme="primary">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<dt-tooltip text="Thème succès" theme="success">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<dt-tooltip text="Thème avertissement" theme="warning">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<dt-tooltip text="Thème danger" theme="danger">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<!-- Tooltip avec icône -->
+<dt-tooltip text="Informations" position="right" theme="primary">
+    <dt-icon name="info" size="lg"></dt-icon>
+</dt-tooltip>
+
+<!-- Tooltip avec délai personnalisé -->
+<dt-tooltip text="Apparition rapide" delay="200">
+    <span class="tooltip-icon">?</span>
+</dt-tooltip>
+
+<!-- Création programmatique -->
+<script>
 const tooltip = DtTooltip.create('Texte du tooltip', {
-  position: 'bottom',
-  theme: 'success',
-  delay: 300
-});</code></pre>
-                </div>
+    position: 'bottom',
+    theme: 'success',
+    delay: 300
+});
+</script>
+                </dt-code-example>
             </div>
         </section>
 
@@ -494,26 +750,50 @@ const tooltip = DtTooltip.create('Texte du tooltip', {
                 </div>
                 
                 <h4>Code d'exemple :</h4>
-                <div class="code-example">
-                    <pre><code>&lt;!-- Box de base --&gt;
-&lt;dt-box variant="primary" icon="info" title="Titre" dismissible&gt;
-  Contenu du box
-&lt;/dt-box&gt;
+                <dt-code-example language="html" title="Composants Box, Alert et Toast" copyable>
+<!-- Box de base avec différentes variantes -->
+<dt-box variant="primary" icon="info" title="Information">
+    Ceci est un box de base avec titre et icône.
+</dt-box>
 
-&lt;!-- Alert dérivé --&gt;
-&lt;dt-alert variant="success" dismissible&gt;
-  Message de succès
-&lt;/dt-alert&gt;
+<dt-box variant="success" icon="check" dismissible>
+    Box de succès avec bouton de fermeture.
+</dt-box>
 
-&lt;!-- Toast programmatique --&gt;
-&lt;script&gt;
+<dt-box variant="warning" size="sm">
+    Box d'avertissement en petite taille.
+</dt-box>
+
+<dt-box variant="danger" size="lg" title="Erreur critique">
+    Box d'erreur en grande taille avec titre.
+</dt-box>
+
+<!-- Alert dérivé du box -->
+<dt-alert variant="primary">
+    Alerte primaire avec icône automatique.
+</dt-alert>
+
+<dt-alert variant="success">
+    Alerte de succès fermable.
+</dt-alert>
+
+<dt-alert variant="warning">
+    Alerte d'avertissement avec icône automatique.
+</dt-alert>
+
+<dt-alert variant="danger">
+    Alerte d'erreur avec icône automatique.
+</dt-alert>
+
+<!-- Toast programmatique -->
+<script>
 DtToast.show('Message de toast', {
-  variant: 'success',
-  duration: 3000,
-  position: 'top-right'
+    variant: 'success',
+    duration: 3000,
+    position: 'top-right'
 });
-&lt;/script&gt;</code></pre>
-                </div>
+</script>
+                </dt-code-example>
             </div>
         </section>
 
@@ -702,24 +982,55 @@ DtToast.show('Message de toast', {
                 </div>
                 
                 <h4>Code d'exemple :</h4>
-                <div class="code-example">
-                    <pre><code>&lt;!-- Icône simple --&gt;
-&lt;dt-icon name="plus" size="lg" color="primary"&gt;&lt;/dt-icon&gt;
+                <dt-code-example language="html" title="Système d'icônes" copyable>
+<!-- Icônes simples avec différentes tailles et couleurs -->
+<dt-icon name="plus" size="lg" color="primary"></dt-icon>
+<dt-icon name="check" size="lg" color="success"></dt-icon>
+<dt-icon name="x" size="lg" color="danger"></dt-icon>
+<dt-icon name="heart" size="lg" color="danger"></dt-icon>
+<dt-icon name="star" size="lg" color="warning"></dt-icon>
 
-&lt;!-- Avec animation --&gt;
-&lt;dt-icon name="refresh" class="icon-spin"&gt;&lt;/dt-icon&gt;
+<!-- Icônes avec animations -->
+<dt-icon name="refresh" size="md" class="icon-spin"></dt-icon>
+<dt-icon name="heart" size="md" class="icon-pulse"></dt-icon>
+<dt-icon name="star" size="md" class="icon-bounce"></dt-icon>
 
-&lt;!-- Dans un bouton --&gt;
-&lt;dt-button variant="primary" icon="plus"&gt;
-  Ajouter
-&lt;/dt-button&gt;
+<!-- Différentes tailles -->
+<dt-icon name="star" size="xs"></dt-icon>
+<dt-icon name="star" size="sm"></dt-icon>
+<dt-icon name="star" size="md"></dt-icon>
+<dt-icon name="star" size="lg"></dt-icon>
+<dt-icon name="star" size="xl"></dt-icon>
+<dt-icon name="star" size="2xl"></dt-icon>
+<dt-icon name="star" size="3xl"></dt-icon>
 
-&lt;!-- JavaScript --&gt;
-const icon = dt-icon.create('heart', { 
-  size: 'lg', 
-  color: 'danger' 
-});</code></pre>
-                </div>
+<!-- Différentes couleurs -->
+<dt-icon name="star" color="primary"></dt-icon>
+<dt-icon name="star" color="success"></dt-icon>
+<dt-icon name="star" color="danger"></dt-icon>
+<dt-icon name="star" color="warning"></dt-icon>
+<dt-icon name="star" color="info"></dt-icon>
+<dt-icon name="star" color="muted"></dt-icon>
+
+<!-- Boutons avec icônes -->
+<dt-button variant="primary" icon="plus">Ajouter</dt-button>
+<dt-button variant="success" icon="check">Valider</dt-button>
+<dt-button variant="danger" icon="x">Supprimer</dt-button>
+
+<!-- Boutons icône uniquement -->
+<dt-button variant="primary" icon="plus" title="Ajouter"></dt-button>
+<dt-button variant="success" icon="check" title="Valider"></dt-button>
+<dt-button variant="danger" icon="x" title="Supprimer"></dt-button>
+<dt-button variant="info" icon="search" title="Rechercher"></dt-button>
+
+<!-- JavaScript pour création programmatique -->
+<script>
+const icon = DtIcon.create('heart', { 
+    size: 'lg', 
+    color: 'danger' 
+});
+</script>
+                </dt-code-example>
             </div>
         </section>
 
@@ -827,13 +1138,56 @@ const icon = dt-icon.create('heart', {
         </footer>
     </div>
     
+    <!-- Modal Examples -->
+    <dt-modal id="basicModal" title="Basic Modal">
+        <p>This is a basic modal with a title and close button.</p>
+        <p>You can put any content here. The modal has a backdrop with blur effect.</p>
+        <p>Click outside the modal or press Escape to close it.</p>
+    </dt-modal>
+
+    <dt-modal id="footerModal" title="Modal with Footer" size="lg">
+        <p>This modal has a footer section for action buttons.</p>
+        <p>You can customize the footer content using the <code>slot="footer"</code> attribute.</p>
+        <p>This modal is also larger (lg size) to demonstrate different sizing options.</p>
+        <div slot="footer">
+            <dt-button variant="secondary" onclick="closeModal('footerModal')">Cancel</dt-button>
+            <dt-button variant="primary">Save Changes</dt-button>
+        </div>
+    </dt-modal>
+
+    <dt-modal id="largeModal" title="Large Modal" size="xl">
+        <h5>Large Modal Example</h5>
+        <p>This is an extra-large modal (xl size) that can contain more content.</p>
+        <p>Perfect for forms, detailed information, or complex layouts.</p>
+        
+        <h6>Features:</h6>
+        <ul>
+            <li>Backdrop blur effect</li>
+            <li>Responsive design</li>
+            <li>Keyboard navigation (Escape to close)</li>
+            <li>Click outside to close</li>
+            <li>Multiple size variants</li>
+            <li>Customizable header and footer</li>
+        </ul>
+        
+        <p>You can also disable the backdrop closing by setting <code>backdrop-closable="false"</code>.</p>
+    </dt-modal>
+
+    <dt-modal id="noHeaderModal" show-header="false" size="sm">
+        <p>This modal doesn't have a header.</p>
+        <p>The close button is still available in the top-right corner.</p>
+        <p>This is useful for simple confirmations or alerts.</p>
+    </dt-modal>
+    
     <script src="src/js/icon-registry.js"></script>
     <script src="src/js/icon-component.js"></script>
     <script src="src/js/tooltip-component.js"></script>
     <script src="src/js/box-component.js"></script>
     <script src="src/js/alert-component.js"></script>
+    <script src="src/js/code-example-component.js"></script>
     <script src="src/js/toast-component.js"></script>
     <script src="src/js/card-component.js"></script>
+    <script src="src/js/modal-component.js"></script>
     <script src="src/js/button-component.js"></script>
     <script src="src/js/form-component.js"></script>
     <script src="src/js/theme-toggle-component.js"></script>
@@ -858,6 +1212,41 @@ const icon = dt-icon.create('heart', {
             });
             document.body.appendChild(toast);
         }
+        
+        // Modal functions
+        function openBasicModal() {
+            const modal = document.getElementById('basicModal');
+            modal.open();
+        }
+        
+        function openModalWithFooter() {
+            const modal = document.getElementById('footerModal');
+            modal.open();
+        }
+        
+        function openLargeModal() {
+            const modal = document.getElementById('largeModal');
+            modal.open();
+        }
+        
+        function openModalWithoutHeader() {
+            const modal = document.getElementById('noHeaderModal');
+            modal.open();
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.close();
+        }
+        
+        // Event listeners for modal events
+        document.addEventListener('modal-open', function(e) {
+            console.log('Modal opened:', e.detail.modal.id);
+        });
+        
+        document.addEventListener('modal-close', function(e) {
+            console.log('Modal closed:', e.detail.modal.id);
+        });
     </script>
 </body>
 </html>
