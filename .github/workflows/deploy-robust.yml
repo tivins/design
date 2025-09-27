@@ -1,9 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (Robust)
 
-# Temporarily disabled - use deploy-simple.yml instead
-# on:
-#   push:
-#     branches: [ main ]
+on:
+  push:
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -37,6 +36,7 @@ jobs:
         uses: actions/configure-pages@v4
         with:
           enablement: true
+          static_site_generator: "other"
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
