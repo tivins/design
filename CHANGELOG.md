@@ -5,6 +5,112 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.22.3] - 2025-01-27
+
+### Enhanced
+- **TOC Menu Button Styling**: Improved styling for menu buttons in TOC navigation
+  - Added proper CSS overrides for `dt-button` components in menu context
+  - Implemented compact menu styling with smaller padding (0.25rem 0.5rem)
+  - Added proper font sizing (0.875rem) and weight (400) for menu items
+  - Enhanced hover and active states with primary color background
+  - Maintained left-aligned text and full-width layout for menu consistency
+
+### Fixed
+- **Menu Button Appearance**: Fixed styling issues with `dt-button` components in TOC
+  - Resolved Shadow DOM styling conflicts with `!important` declarations
+  - Ensured proper visual hierarchy with compact menu design
+  - Fixed hover and active state transitions for better user feedback
+  - Maintained dark theme compatibility with proper color overrides
+
+### Technical Details
+- Added comprehensive CSS overrides for `.toc-link` class
+- Used `!important` declarations to override Shadow DOM styles
+- Implemented proper menu-specific styling: padding, font-size, alignment
+- Enhanced visual feedback with hover and active states
+- All tests pass with correct styling metrics (4px 8px padding, 14px font-size)
+- Screenshots captured for visual verification
+
+## [1.22.2] - 2025-01-27
+
+### Changed
+- **TOC Navigation Components**: Replaced `<a>` links with `<dt-button>` components for consistency
+  - All 12 TOC navigation items now use `<dt-button variant="link">` components
+  - Maintains same visual appearance and functionality
+  - Better integration with the design system architecture
+  - Consistent styling and behavior across all components
+
+### Enhanced
+- **TOC Button Styling**: Optimized CSS for button components in TOC
+  - Added `width: 100%` and `text-align: left` for proper button layout
+  - Used `justify-content: flex-start` for left-aligned text
+  - Added `!important` declarations to override button component styles
+  - Maintained hover and active states with proper color transitions
+  - Preserved dark theme support with theme-aware styling
+
+### Technical Details
+- Updated HTML structure: `<a href="#section">` → `<dt-button variant="link" data-target="#section">`
+- Modified JavaScript to use `data-target` attribute instead of `href`
+- Updated CSS selectors and styling for button components
+- Maintained all existing functionality: smooth scroll, active states, mobile behavior
+- All tests pass with 12 dt-button components verified
+- Screenshots captured for both desktop and mobile views
+
+## [1.22.1] - 2025-01-27
+
+### Fixed
+- **TOC Horizontal Scrollbar**: Removed unwanted horizontal scrollbar in TOC menu
+  - Added `overflow-x: hidden` to prevent horizontal scrolling
+  - TOC list now only shows vertical scrollbar when needed
+
+### Improved
+- **TOC Animation Performance**: Reduced animation durations for more responsive behavior
+  - Container transitions: `0.3s` → `0.2s` (33% faster)
+  - Link hover transitions: `0.2s` → `0.15s` (25% faster)
+  - Toggle button transitions: `0.2s` → `0.15s` (25% faster)
+  - Mobile auto-collapse delay: `500ms` → `200ms` (60% faster)
+  - Removed scale transform on hover for cleaner interaction
+  - Improved opacity values for better visual feedback
+
+### Technical Details
+- Modified CSS transitions to be more specific and faster
+- Removed unnecessary transform animations on hover
+- Optimized mobile interaction timing
+- All tests pass with improved performance metrics
+- Screenshots captured to verify visual improvements
+
+## [1.22.0] - 2025-01-27
+
+### Added
+- **Table of Contents (TOC) Navigation**: Complete sticky navigation system for the demo page
+  - **Sticky Positioning**: Fixed TOC container positioned on the right side of the screen
+  - **Collapsible Design**: Toggle button to collapse/expand the TOC for space optimization
+  - **Active Section Highlighting**: Automatic highlighting of the current section based on scroll position
+  - **Smooth Scrolling**: Smooth scroll behavior when clicking on TOC links
+  - **Intersection Observer**: Real-time detection of visible sections for accurate active state
+  - **Responsive Design**: Mobile-optimized TOC that adapts to smaller screens
+  - **Dark Theme Support**: Full dark theme integration with proper colors and contrast
+  - **Auto-collapse on Mobile**: TOC automatically collapses after navigation on mobile devices
+
+### Enhanced
+- **Navigation Experience**: Improved user experience with intuitive navigation
+  - All 12 main sections now have anchor links for direct navigation
+  - Visual feedback with hover effects and active states
+  - Custom scrollbar styling for the TOC list
+  - Smooth animations and transitions throughout the interface
+
+### Technical Details
+- Added comprehensive CSS styling for TOC with theme-aware colors
+- Implemented JavaScript functionality for:
+  - TOC toggle (collapse/expand) with icon switching
+  - Smooth scroll navigation to sections
+  - Active section detection using Intersection Observer API
+  - Mobile responsive behavior with auto-collapse
+  - Window resize handling for responsive adjustments
+- Added unique IDs to all demo sections for anchor navigation
+- Created automated test suite with Playwright for TOC functionality
+- All tests pass including navigation, theme switching, and mobile responsiveness
+- Screenshots captured for both light and dark themes, desktop and mobile views
+
 ## [1.21.2] - 2025-09-27
 
 ### Fixed

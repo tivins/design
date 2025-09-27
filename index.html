@@ -55,6 +55,204 @@
         [data-theme="dark"] .code-example {
             background: var(--bg-tertiary);
         }
+        
+        /* Table of Contents Styles */
+        .toc-container {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            max-width: 280px;
+            background: var(--white);
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-lg);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0.9;
+        }
+        
+        [data-theme="dark"] .toc-container {
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .toc-container:hover {
+            opacity: 1;
+        }
+        
+        .toc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .toc-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0;
+        }
+        
+        [data-theme="dark"] .toc-title {
+            color: var(--text-primary);
+        }
+        
+        .toc-toggle {
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.15s ease, color 0.15s ease;
+        }
+        
+        .toc-toggle:hover {
+            background: var(--gray-100);
+            color: var(--primary-color);
+        }
+        
+        [data-theme="dark"] .toc-toggle:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 400px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .toc-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .toc-list::-webkit-scrollbar-track {
+            background: var(--gray-100);
+            border-radius: 2px;
+        }
+        
+        .toc-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        [data-theme="dark"] .toc-list::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+        
+        .toc-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-link {
+            /* Override dt-button styles for menu appearance */
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            justify-content: flex-start !important;
+            padding: 0.25rem 0.5rem !important;
+            font-size: 0.875rem !important;
+            font-weight: 400 !important;
+            border: none !important;
+            background: transparent !important;
+            color: var(--gray-700) !important;
+            border-radius: 0.25rem !important;
+            transition: background-color 0.15s ease, color 0.15s ease !important;
+            margin-bottom: 0;
+            position: relative;
+        }
+        
+        .toc-link:hover {
+            background: var(--primary-color) !important;
+            color: var(--white) !important;
+        }
+        
+        .toc-link.active {
+            background: var(--primary-color) !important;
+            color: var(--white) !important;
+            font-weight: 500 !important;
+        }
+        
+        .toc-link.active::before {
+            content: '';
+            position: absolute;
+            left: -0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        [data-theme="dark"] .toc-link {
+            color: var(--text-secondary) !important;
+        }
+        
+        [data-theme="dark"] .toc-link:hover,
+        [data-theme="dark"] .toc-link.active {
+            background: var(--primary-color) !important;
+            color: var(--white) !important;
+        }
+        
+        .toc-collapsed {
+            transform: translateY(-50%) translateX(calc(100% - 3rem));
+            opacity: 0.8;
+        }
+        
+        .toc-collapsed .toc-list {
+            display: none;
+        }
+        
+        .toc-collapsed .toc-title {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .toc-container {
+                position: fixed;
+                top: auto;
+                bottom: 2rem;
+                right: 1rem;
+                left: 1rem;
+                transform: none;
+                max-width: none;
+                max-height: 50vh;
+            }
+            
+            .toc-collapsed {
+                transform: none;
+                bottom: 1rem;
+                right: 1rem;
+                left: auto;
+                width: auto;
+                max-width: 200px;
+            }
+            
+            .toc-collapsed .toc-title {
+                writing-mode: horizontal-tb;
+                text-orientation: initial;
+            }
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Section anchors */
+        .demo-section {
+            scroll-margin-top: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -69,8 +267,56 @@
             </div>
         </header>
 
+        <!-- Table of Contents -->
+        <div class="toc-container" id="toc">
+            <div class="toc-header">
+                <h3 class="toc-title">Table des matières</h3>
+                <button class="toc-toggle" id="tocToggle" title="Réduire/Développer">
+                    <dt-icon name="menu" size="sm"></dt-icon>
+                </button>
+            </div>
+            <ul class="toc-list" id="tocList">
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#grid-system">Grid System</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#buttons">Buttons</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#modals">Modals</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#forms">Forms</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#cards">Cards</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#alerts">Alerts</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#tooltips">Tooltips</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#box-components">Box Components</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#typography">Typography</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#icons">Icons</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#dark-theme">Dark Theme</dt-button>
+                </li>
+                <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#utilities">Utilities</dt-button>
+                </li>
+            </ul>
+        </div>
+
         <!-- Grid System Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="grid-system">
             <h2>Grid System</h2>
             <div class="component-demo">
                 <div class="row">
@@ -127,7 +373,7 @@
         </section>
 
         <!-- Buttons Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="buttons">
             <h2>Buttons</h2>
             <div class="component-demo">
                 <div class="mb-3">
@@ -201,7 +447,7 @@
         </section>
 
         <!-- Modal Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="modals">
             <h2>Modals</h2>
             <div class="component-demo">
                 <div class="row">
@@ -253,7 +499,7 @@
         </section>
 
         <!-- Forms Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="forms">
             <h2>Forms</h2>
             <div class="component-demo">
                 <dt-form>
@@ -370,7 +616,7 @@
         </section>
 
         <!-- Cards Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="cards">
             <h2>Cards</h2>
             <div class="component-demo">
                 <div class="row">
@@ -421,7 +667,7 @@
         </section>
 
         <!-- Alerts Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="alerts">
             <h2>Alerts</h2>
             <div class="component-demo">
                 <p>Les alertes permettent d'afficher des messages importants à l'utilisateur avec différents niveaux de priorité.</p>
@@ -517,7 +763,7 @@
         </section>
 
         <!-- Tooltips Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="tooltips">
             <h2>Tooltips</h2>
             <div class="component-demo">
                 <p>Les tooltips permettent d'afficher des informations contextuelles au survol ou au focus d'un élément.</p>
@@ -685,7 +931,7 @@ const tooltip = DtTooltip.create('Texte du tooltip', {
         </section>
 
         <!-- Box Components Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="box-components">
             <h2>Box Components</h2>
             <div class="component-demo">
                 <p>Le composant <code>&lt;dt-box&gt;</code> est la base pour créer des alertes, toasts et autres composants de notification.</p>
@@ -798,7 +1044,7 @@ DtToast.show('Message de toast', {
         </section>
 
         <!-- Typography Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="typography">
             <h2>Typography</h2>
             <div class="component-demo">
                 <h1>h1. Bootstrap heading</h1>
@@ -827,7 +1073,7 @@ DtToast.show('Message de toast', {
         </section>
 
         <!-- Icons Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="icons">
             <h2>Icons</h2>
             <div class="component-demo">
                 <p>Le toolkit inclut un système d'icônes SVG complet avec des classes utilitaires et un web component.</p>
@@ -1035,7 +1281,7 @@ const icon = DtIcon.create('heart', {
         </section>
 
         <!-- Dark Theme Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="dark-theme">
             <h2>Dark Theme</h2>
             <div class="component-demo">
                 <p>Le toolkit supporte automatiquement le thème sombre avec plusieurs options :</p>
@@ -1095,7 +1341,7 @@ const icon = DtIcon.create('heart', {
         </section>
 
         <!-- Utilities Demo -->
-        <section class="demo-section">
+        <section class="demo-section" id="utilities">
             <h2>Utilities</h2>
             <div class="component-demo">
                 <h4>Spacing</h4>
@@ -1247,6 +1493,103 @@ const icon = DtIcon.create('heart', {
         
         document.addEventListener('modal-close', function(e) {
             console.log('Modal closed:', e.detail.modal.id);
+        });
+        
+        // Table of Contents functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocContainer = document.getElementById('toc');
+            const tocToggle = document.getElementById('tocToggle');
+            const tocList = document.getElementById('tocList');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.demo-section');
+            
+            let isCollapsed = false;
+            
+            // Toggle TOC collapse/expand
+            tocToggle.addEventListener('click', function() {
+                isCollapsed = !isCollapsed;
+                tocContainer.classList.toggle('toc-collapsed', isCollapsed);
+                
+                // Update icon
+                const icon = tocToggle.querySelector('dt-icon');
+                if (isCollapsed) {
+                    icon.setAttribute('name', 'arrow-left');
+                } else {
+                    icon.setAttribute('name', 'menu');
+                }
+            });
+            
+            // Smooth scroll for TOC buttons
+            tocLinks.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Update active button
+                        updateActiveButton(this);
+                    }
+                });
+            });
+            
+            // Update active button based on scroll position
+            function updateActiveButton(activeButton) {
+                tocLinks.forEach(button => button.classList.remove('active'));
+                activeButton.classList.add('active');
+            }
+            
+            // Intersection Observer for active section detection
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        const correspondingButton = document.querySelector(`.toc-link[data-target="#${sectionId}"]`);
+                        if (correspondingButton) {
+                            updateActiveButton(correspondingButton);
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Auto-collapse TOC on mobile after button click
+            if (window.innerWidth <= 768) {
+                tocLinks.forEach(button => {
+                    button.addEventListener('click', function() {
+                        setTimeout(() => {
+                            if (!isCollapsed) {
+                                tocToggle.click();
+                            }
+                        }, 200);
+                    });
+                });
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && isCollapsed) {
+                    isCollapsed = false;
+                    tocContainer.classList.remove('toc-collapsed');
+                    const icon = tocToggle.querySelector('dt-icon');
+                    icon.setAttribute('name', 'menu');
+                }
+            });
         });
     </script>
 </body>

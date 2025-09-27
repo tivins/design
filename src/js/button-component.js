@@ -5,7 +5,7 @@
 // For now, we'll create a proper inheritance structure
 
 class DtButton extends HTMLElement {
-  static observedAttributes = ['variant', 'size', 'icon', 'disabled', 'type', 'href', 'bordered', 'background'];
+  static observedAttributes = ['variant', 'size', 'icon', 'disabled', 'type', 'href', 'bordered', 'background', 'menu-item'];
 
   constructor() {
     super();
@@ -105,6 +105,12 @@ class DtButton extends HTMLElement {
         }
 
         /* Sizes */
+        .btn-xs {
+          padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
+          font-size: var(--font-size-xs, 0.75rem);
+          line-height: 1.2;
+        }
+
         .btn-sm {
           padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.75rem);
           font-size: var(--font-size-sm, 0.875rem);
@@ -322,6 +328,47 @@ class DtButton extends HTMLElement {
           text-decoration: underline;
         }
 
+        /* Menu variant */
+        .btn-menu {
+          color: var(--gray-700);
+          background-color: transparent;
+          border-color: transparent;
+          text-decoration: none;
+          text-align: left;
+          justify-content: flex-start;
+          padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem);
+          font-size: var(--font-size-sm, 0.875rem);
+          font-weight: var(--font-weight-normal, 400);
+          border-radius: var(--border-radius-sm, 0.25rem);
+          width: 100%;
+          transition: background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .btn-menu:hover {
+          color: var(--white);
+          background-color: var(--primary-color);
+          border-color: transparent;
+          text-decoration: none;
+        }
+
+        .btn-menu.active {
+          color: var(--white);
+          background-color: var(--primary-color);
+          border-color: transparent;
+          font-weight: var(--font-weight-medium, 500);
+        }
+
+        /* Dark theme support for menu */
+        :host-context([data-theme="dark"]) .btn-menu {
+          color: var(--text-secondary);
+        }
+
+        :host-context([data-theme="dark"]) .btn-menu:hover,
+        :host-context([data-theme="dark"]) .btn-menu.active {
+          color: var(--white);
+          background-color: var(--primary-color);
+        }
+
         /* Icon-only buttons */
         .btn-icon {
           padding: var(--spacing-sm, 0.5rem);
@@ -406,6 +453,14 @@ class DtButton extends HTMLElement {
       this.removeAttribute('background');
     } else {
       this.setAttribute('background', 'false');
+    }
+  }
+
+  setActive(active) {
+    if (active) {
+      this.classList.add('active');
+    } else {
+      this.classList.remove('active');
     }
   }
 
