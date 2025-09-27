@@ -3,11 +3,13 @@
 
 .alert {
   position: relative;
+
   /* padding: var(--spacing-md) var(--spacing-lg); */
   margin-bottom: var(--spacing-md);
   border: 1px solid transparent;
   border-radius: var(--border-radius-md);
   display: flex;
+
   /* align-items: center; */
   gap: var(--spacing-sm);
   
@@ -27,6 +29,7 @@
   .alert-content {
     flex: 1;
     min-width: 0; // Allow text to wrap properly
+
     /* padding-left: 0; */
     padding: 1rem 1rem 1rem 0;
   }

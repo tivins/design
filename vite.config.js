@@ -15,7 +15,9 @@ export default defineConfig({
         assetFileNames: 'css/[name].[ext]'
       }
     },
-    cssCodeSplit: false
+    cssCodeSplit: false,
+    minify: 'terser',
+    sourcemap: true
   },
   css: {
     preprocessorOptions: {
@@ -26,6 +28,10 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    open: true
+  },
+  preview: {
+    port: 4173,
     open: true
   }
 })

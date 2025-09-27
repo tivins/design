@@ -5,6 +5,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.24.0] - 2025-01-27
+
+### Added
+- **GitHub Actions CI/CD Pipeline**: Complete automated build and deployment system
+  - **Build Workflow**: Automated testing, linting, and building on push/PR to main/develop branches
+  - **Release Workflow**: Automatic release creation and asset upload when tags are pushed
+  - **GitHub Pages Deployment**: Automatic deployment to GitHub Pages on main branch pushes
+  - **Multi-Node Testing**: Build tested on Node.js 18.x and 20.x for compatibility
+  - **Artifact Management**: Build artifacts uploaded and retained for 30 days
+  - **Cross-Platform Support**: Windows-compatible build scripts with rimraf for cleanup
+
+### Enhanced
+- **Package.json Scripts**: Added comprehensive build and development scripts
+  - `npm run ci`: Complete CI pipeline (lint + test + build)
+  - `npm run test:run`: Run tests without watch mode
+  - `npm run test:ui`: Run tests with UI interface
+  - `npm run clean`: Cross-platform directory cleanup
+  - `npm run prebuild`: Automatic cleanup before build
+
+### Improved
+- **Build Configuration**: Enhanced Vite configuration for production builds
+  - Added Terser minification for optimized CSS output
+  - Enabled sourcemap generation for debugging
+  - Improved build performance and output optimization
+  - Better error handling and build reporting
+
+### Technical Details
+- Created `.github/workflows/build.yml` for continuous integration
+- Created `.github/workflows/release.yml` for automated releases
+- Added `.stylelintrc.json` with comprehensive linting rules
+- Added `rimraf` and `terser` dependencies for cross-platform builds
+- Created `src/test/basic.test.js` for basic test coverage
+- Enhanced `vite.config.js` with production optimizations
+- All workflows tested and verified working on Windows environment
+- Build produces optimized CSS (85.38 kB, 13.51 kB gzipped)
+
 ## [1.23.0] - 2025-01-27
 
 ### Added

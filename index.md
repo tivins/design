@@ -11,7 +11,6 @@ A modern frontend toolkit similar to Bootstrap, built with modern web technologi
 - ⚡ Fast build system with Vite
 - 🧪 Comprehensive testing with Playwright
 - 📦 NPM package ready
-- 🚀 Automated CI/CD with GitHub Actions
 
 ## Quick Start
 
@@ -35,16 +34,6 @@ npm run lint
 ## Documentation
 
 Visit the [live demo](https://your-username.github.io/design-toolkit/) to see all components in action.
-
-## CI/CD
-
-This project uses GitHub Actions for automated:
-- ✅ Testing and linting
-- ✅ Building and optimization
-- ✅ Release management
-- ✅ GitHub Pages deployment
-
-See [GitHub Actions documentation](docs/GITHUB_ACTIONS.md) for details.
 
 ## License
 
