@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.23.0] - 2025-01-27
+
+### Added
+- **Theme Toggle Component Documentation**: Added comprehensive section dedicated to the `dt-theme-toggle` component
+  - Complete documentation of all available variants (link, primary, secondary, outline variants)
+  - Size options demonstration (sm, md, lg)
+  - Programmatic control examples with JavaScript functions
+  - Interactive buttons for testing theme switching functionality
+  - Complete HTML code examples with copy functionality
+  - Added entry to Table of Contents for easy navigation
+
+### Enhanced
+- **Theme Toggle Section**: Comprehensive demonstration of theme toggle capabilities
+  - All 9 button variants displayed with labels
+  - All 3 size options shown with descriptions
+  - Interactive programmatic control buttons
+  - Real-time theme status display
+  - Complete API documentation with practical examples
+
+### Technical Details
+- Added new section `#theme-toggle` to index.html with complete component showcase
+- Created `test/theme-toggle-test.js` with comprehensive Playwright testing
+- Added JavaScript functions for programmatic theme control (`setTheme`, `getCurrentTheme`, `showThemeStatus`)
+- Updated Table of Contents with Theme Toggle entry
+- All tests pass with proper theme switching verification
+- Screenshots captured for both light and dark themes
+- Component functionality verified across all variants and sizes
+
 ## [1.22.4] - 2025-01-27
 
 ### Enhanced
