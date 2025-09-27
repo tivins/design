@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.22.4] - 2025-01-27
+
+### Enhanced
+- **TOC Auto-Scroll**: Added automatic scrolling of TOC menu to keep active button visible
+  - When scrolling through page sections, the TOC menu now automatically scrolls to show the active button
+  - Active button is centered in the TOC viewport for optimal visibility
+  - Smooth scroll behavior with `behavior: 'smooth'` for better user experience
+  - Only works when TOC is expanded (not collapsed)
+
+### Improved
+- **TOC Navigation UX**: Enhanced user experience with intelligent menu scrolling
+  - Prevents active buttons from being hidden outside the TOC viewport
+  - Maintains visual context by keeping the active section visible in the menu
+  - Works seamlessly with both manual navigation and page scrolling
+  - Responsive behavior on both desktop and mobile devices
+
+### Technical Details
+- Added `scrollActiveButtonIntoView()` function for intelligent menu scrolling
+- Uses `getBoundingClientRect()` to detect button visibility in TOC viewport
+- Calculates optimal scroll position to center active button
+- Respects TOC collapsed state (no scroll when collapsed)
+- Smooth scroll animation with `scrollTo()` method
+- All tests pass with proper scroll behavior verification
+
 ## [1.22.3] - 2025-01-27
 
 ### Enhanced

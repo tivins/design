@@ -307,6 +307,9 @@
                     <dt-button variant="menu" size="xs" class="toc-link" data-target="#icons">Icons</dt-button>
                 </li>
                 <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#theme-toggle">Theme Toggle</dt-button>
+                </li>
+                <li class="toc-item">
                     <dt-button variant="menu" size="xs" class="toc-link" data-target="#dark-theme">Dark Theme</dt-button>
                 </li>
                 <li class="toc-item">
@@ -1280,6 +1283,152 @@ const icon = DtIcon.create('heart', {
             </div>
         </section>
 
+        <!-- Theme Toggle Demo -->
+        <section class="demo-section" id="theme-toggle">
+            <h2>Theme Toggle</h2>
+            <div class="component-demo">
+                <p>Le composant <code>&lt;dt-theme-toggle&gt;</code> permet de basculer entre les thèmes clair et sombre avec persistance automatique.</p>
+                
+                <h4>Variantes disponibles :</h4>
+                <div class="mb-4">
+                    <p>Le composant supporte différentes variantes de boutons :</p>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="link" title="Toggle theme (link)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Link (défaut)</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="primary" title="Toggle theme (primary)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Primary</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="secondary" title="Toggle theme (secondary)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Secondary</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="outline-primary" title="Toggle theme (outline primary)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Outline Primary</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="outline-secondary" title="Toggle theme (outline secondary)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Outline Secondary</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="outline-success" title="Toggle theme (outline success)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Outline Success</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="outline-danger" title="Toggle theme (outline danger)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Outline Danger</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="outline-warning" title="Toggle theme (outline warning)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Outline Warning</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="outline-info" title="Toggle theme (outline info)"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Outline Info</span>
+                    </div>
+                </div>
+                
+                <h4>Tailles disponibles :</h4>
+                <div class="mb-4">
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="primary" size="sm" title="Small theme toggle"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Small (sm)</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="primary" size="md" title="Medium theme toggle"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Medium (md - défaut)</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <dt-theme-toggle variant="primary" size="lg" title="Large theme toggle"></dt-theme-toggle>
+                        <span class="ml-2 text-muted">Large (lg)</span>
+                    </div>
+                </div>
+                
+                <h4>Fonctionnalités :</h4>
+                <div class="mb-4">
+                    <ul>
+                        <li><strong>Détection automatique</strong> : Respecte les préférences système au premier chargement</li>
+                        <li><strong>Persistance</strong> : Sauvegarde le choix dans localStorage</li>
+                        <li><strong>Icônes adaptatives</strong> : Affiche lune/soleil selon le thème actuel</li>
+                        <li><strong>Événements</strong> : Émet un événement <code>themeChanged</code> lors du changement</li>
+                        <li><strong>API publique</strong> : Méthodes pour contrôler le thème programmatiquement</li>
+                    </ul>
+                </div>
+                
+                <h4>Utilisation programmatique :</h4>
+                <div class="mb-4">
+                    <p>Vous pouvez contrôler le thème via JavaScript :</p>
+                    
+                    <div class="mb-3">
+                        <dt-button variant="primary" onclick="setTheme('light')">Forcer thème clair</dt-button>
+                        <dt-button variant="secondary" onclick="setTheme('dark')">Forcer thème sombre</dt-button>
+                        <dt-button variant="info" onclick="getCurrentTheme()">Afficher thème actuel</dt-button>
+                    </div>
+                    
+                    <div id="theme-status" class="alert alert-info" style="display: none;">
+                        <strong>Thème actuel :</strong> <span id="current-theme-display"></span>
+                    </div>
+                </div>
+                
+                <h4>Code d'exemple :</h4>
+                <dt-code-example language="html" title="Composant Theme Toggle" copyable>
+<!-- Theme toggle basique -->
+<dt-theme-toggle></dt-theme-toggle>
+
+<!-- Avec variante et taille -->
+<dt-theme-toggle variant="primary" size="lg" title="Changer le thème"></dt-theme-toggle>
+
+<!-- Variantes outline -->
+<dt-theme-toggle variant="outline-primary"></dt-theme-toggle>
+<dt-theme-toggle variant="outline-success"></dt-theme-toggle>
+<dt-theme-toggle variant="outline-danger"></dt-theme-toggle>
+
+<!-- JavaScript pour contrôle programmatique -->
+<script>
+// Obtenir le composant theme toggle
+const themeToggle = document.querySelector('dt-theme-toggle');
+
+// Obtenir le thème actuel
+const currentTheme = themeToggle.getCurrentTheme();
+console.log('Thème actuel:', currentTheme);
+
+// Définir un thème spécifique
+themeToggle.setTheme('dark');
+
+// Écouter les changements de thème
+window.addEventListener('themeChanged', function(e) {
+    console.log('Thème changé:', e.detail.theme);
+});
+
+// Fonctions utilitaires
+function setTheme(theme) {
+    const toggle = document.querySelector('dt-theme-toggle');
+    toggle.setTheme(theme);
+}
+
+function getCurrentTheme() {
+    const toggle = document.querySelector('dt-theme-toggle');
+    const theme = toggle.getCurrentTheme();
+    alert('Thème actuel: ' + theme);
+}
+</script>
+                </dt-code-example>
+            </div>
+        </section>
+
         <!-- Dark Theme Demo -->
         <section class="demo-section" id="dark-theme">
             <h2>Dark Theme</h2>
@@ -1449,6 +1598,38 @@ const icon = DtIcon.create('heart', {
             });
         }
         
+        // Fonctions pour le contrôle du thème
+        function setTheme(theme) {
+            const toggle = document.querySelector('dt-theme-toggle');
+            if (toggle) {
+                toggle.setTheme(theme);
+                showThemeStatus(theme);
+            }
+        }
+        
+        function getCurrentTheme() {
+            const toggle = document.querySelector('dt-theme-toggle');
+            if (toggle) {
+                const theme = toggle.getCurrentTheme();
+                showThemeStatus(theme);
+            }
+        }
+        
+        function showThemeStatus(theme) {
+            const statusDiv = document.getElementById('theme-status');
+            const themeDisplay = document.getElementById('current-theme-display');
+            
+            if (statusDiv && themeDisplay) {
+                themeDisplay.textContent = theme;
+                statusDiv.style.display = 'block';
+                
+                // Masquer après 3 secondes
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+        
         // Exemple d'utilisation avancée
         function showCustomToast() {
             const toast = DtToast.create({
@@ -1542,6 +1723,44 @@ const icon = DtIcon.create('heart', {
             function updateActiveButton(activeButton) {
                 tocLinks.forEach(button => button.classList.remove('active'));
                 activeButton.classList.add('active');
+                
+                // Scroll the active button into view in the TOC
+                scrollActiveButtonIntoView(activeButton);
+            }
+            
+            // Scroll the active button into view in the TOC menu
+            function scrollActiveButtonIntoView(activeButton) {
+                const tocList = document.getElementById('tocList');
+                const tocContainer = document.getElementById('toc');
+                
+                if (!tocList || !tocContainer) return;
+                
+                // Check if TOC is collapsed
+                if (tocContainer.classList.contains('toc-collapsed')) return;
+                
+                const buttonRect = activeButton.getBoundingClientRect();
+                const tocListRect = tocList.getBoundingClientRect();
+                const tocContainerRect = tocContainer.getBoundingClientRect();
+                
+                // Check if button is visible in the TOC viewport
+                const isButtonVisible = buttonRect.top >= tocListRect.top && 
+                                      buttonRect.bottom <= tocListRect.bottom;
+                
+                if (!isButtonVisible) {
+                    // Calculate scroll position to center the active button
+                    const buttonOffsetTop = activeButton.offsetTop;
+                    const tocListHeight = tocList.clientHeight;
+                    const buttonHeight = activeButton.clientHeight;
+                    
+                    // Center the button in the visible area
+                    const scrollTop = buttonOffsetTop - (tocListHeight / 2) + (buttonHeight / 2);
+                    
+                    // Smooth scroll to the calculated position
+                    tocList.scrollTo({
+                        top: Math.max(0, scrollTop),
+                        behavior: 'smooth'
+                    });
+                }
             }
             
             // Intersection Observer for active section detection
