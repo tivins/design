@@ -11,11 +11,44 @@ class DtCard extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    this.ensureDarkModeBackground();
+    this.observeThemeChanges();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
       this.render();
+      this.ensureDarkModeBackground();
+    }
+  }
+
+  observeThemeChanges() {
+    // Observe theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          setTimeout(() => this.ensureDarkModeBackground(), 100);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  ensureDarkModeBackground() {
+    // Force background color based on current theme
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    const cardBody = this.shadowRoot?.querySelector('.card-body');
+    
+    if (cardBody) {
+      if (isDarkMode) {
+        cardBody.style.backgroundColor = '#161b22';
+      } else {
+        cardBody.style.backgroundColor = '#ffffff';
+      }
     }
   }
 
@@ -62,8 +95,20 @@ class DtCard extends HTMLElement {
           color: #8b949e;
         }
 
+        /* Ensure all card variants inherit background in dark mode */
+        :host-context([data-theme="dark"]) .card {
+          background-color: #161b22 !important;
+        }
+
+        :host-context([data-theme="dark"]) .card-body {
+          background-color: #161b22 !important;
+        }
+
+        /* Force background for all card elements in dark mode */
+        :host-context([data-theme="dark"]) .card-title,
+        :host-context([data-theme="dark"]) .card-text,
         :host-context([data-theme="dark"]) .card-subtitle {
-          color: #6e7681;
+          background-color: #161b22 !important;
         }
 
         :host([variant="primary"]) .card {
@@ -113,7 +158,7 @@ class DtCard extends HTMLElement {
 
         .card-body {
           padding: var(--spacing-lg, 1.5rem);
-          background-color: transparent;
+          background-color: var(--white);
         }
 
         .card-title {

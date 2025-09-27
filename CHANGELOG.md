@@ -5,6 +5,83 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.21.2] - 2025-09-27
+
+### Fixed
+- **Light Mode Background Issue**: Fixed transparent backgrounds in light mode
+  - Card and modal bodies now properly display white backgrounds (#ffffff) in light mode
+  - Applied bidirectional background enforcement for both light and dark modes
+  - All 11 cards and 7 modals now display correctly in both themes
+
+### Enhanced
+- **Background Verification System**: Now detects issues in both modes
+  - Removed "dark mode only" condition from background checking
+  - System now validates backgrounds in light mode, dark mode, and theme transitions
+  - Generic error messages for transparent backgrounds in any mode
+  - Complete bidirectional theme support
+
+### Technical Details
+- Modified `ensureDarkModeBackground()` methods in both card and modal components
+- Added light mode background enforcement (`#ffffff`) alongside dark mode (`#161b22`)
+- Updated background checker to validate all modes, not just dark mode
+- All tests pass with 0 background issues in both light and dark modes
+- Screenshots taken for both modes to verify visual correctness
+
+## [1.21.1] - 2025-09-27
+
+### Fixed
+- **Modal Background Issue in Dark Mode**: Fixed transparent backgrounds in modal bodies
+  - Modal bodies now properly inherit dark background color (#161b22) in dark mode
+  - Applied same JavaScript-based background enforcement as cards
+  - Implemented theme change observer for modals
+  - All 7 modal components now display with correct dark backgrounds
+
+### Enhanced
+- **Background Verification System**: Extended to include modals
+  - `CardBackgroundChecker` → `CardAndModalBackgroundChecker` (v2.0.0)
+  - Now monitors both cards and modals simultaneously
+  - Separate reporting for card issues vs modal issues
+  - Unified verification system for all Shadow DOM components
+
+### Technical Details
+- Enhanced `src/js/modal-component.js` with same background enforcement as cards
+- Extended `src/js/card-background-checker.js` to monitor modals
+- Added modal-specific CSS rules with `!important` declarations
+- Eliminated code duplication between card and modal components
+- All tests pass with 0 background issues for both components
+
+## [1.21.0] - 2025-09-27
+
+### Fixed
+- **Card Background Issue in Dark Mode**: Fixed transparent backgrounds in card bodies
+  - Card bodies now properly inherit dark background color (#161b22) in dark mode
+  - Added JavaScript-based background enforcement for Shadow DOM components
+  - Implemented theme change observer to update backgrounds dynamically
+  - All 11 card components now display with correct dark backgrounds
+
+### Added
+- **Card Background Verification System**: Comprehensive background checking system
+  - `CardBackgroundChecker` class for automatic background validation
+  - Real-time monitoring of card background colors in both themes
+  - Automatic detection of theme changes and background updates
+  - Detailed reporting of background issues with card indices
+  - Export functionality for testing and debugging
+  - Console logging with success/warning indicators
+
+### Enhanced
+- **Card Component Dark Mode Support**: Improved dark theme integration
+  - Added `ensureDarkModeBackground()` method for forced background application
+  - Added `observeThemeChanges()` method for dynamic theme detection
+  - Enhanced CSS rules with `!important` declarations for Shadow DOM
+  - Improved theme transition handling with proper timing
+
+### Technical Details
+- Created `src/js/card-background-checker.js` with comprehensive monitoring system
+- Enhanced `src/js/card-component.js` with JavaScript-based background enforcement
+- Added automated testing with Playwright for background verification
+- Screenshots taken before and after fix for visual confirmation
+- All tests pass with 0 background issues detected
+
 ## [1.20.0] - 2024-12-19
 
 ### Added

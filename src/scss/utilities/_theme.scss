@@ -64,6 +64,10 @@
     color: var(--text-primary);
   }
   
+  .card-body {
+    background-color: var(--bg-secondary);
+  }
+  
   .card-header {
     background-color: var(--bg-tertiary);
     border-bottom-color: var(--border-primary);

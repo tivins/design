@@ -23,11 +23,14 @@ class DtModal extends HTMLElement {
   connectedCallback() {
     this.render();
     this.setupEventListeners();
+    this.ensureDarkModeBackground();
+    this.observeThemeChanges();
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
       this.render();
+      this.ensureDarkModeBackground();
       
       // Handle open/close state changes
       if (name === 'open') {
@@ -36,6 +39,36 @@ class DtModal extends HTMLElement {
         } else {
           this.close();
         }
+      }
+    }
+  }
+
+  observeThemeChanges() {
+    // Observe theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          setTimeout(() => this.ensureDarkModeBackground(), 100);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  ensureDarkModeBackground() {
+    // Force background color based on current theme
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    const modalBody = this.shadowRoot?.querySelector('.modal-body');
+    
+    if (modalBody) {
+      if (isDarkMode) {
+        modalBody.style.backgroundColor = '#161b22';
+      } else {
+        modalBody.style.backgroundColor = '#ffffff';
       }
     }
   }
@@ -154,6 +187,10 @@ class DtModal extends HTMLElement {
           color: #f0f6fc;
         }
 
+        :host-context([data-theme="dark"]) .modal-body {
+          background-color: #161b22 !important;
+        }
+
         /* Size variants */
         :host([size="sm"]) .modal-container {
           width: 400px;
@@ -244,6 +281,7 @@ class DtModal extends HTMLElement {
           padding: var(--spacing-lg, 1.5rem);
           flex: 1;
           overflow-y: auto;
+          background-color: var(--white);
         }
 
         .modal-footer {
