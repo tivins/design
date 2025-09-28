@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.34.0] - 2025-01-29
+
+### Fixed
+- **GitHub Pages Deployment**: Resolved permission issues with GitHub Actions
+  - **Permission Error**: Fixed "Permission to tivins/design.git denied to github-actions[bot]" error
+  - **New Working Workflow**: Created `deploy-working.yml` with proper permissions
+    - Added `contents: write` permission for pushing to gh-pages branch
+    - Added `force_orphan: true` for first-time deployment handling
+    - Added `allow_empty_commit: true` for reliability
+  - **Workflow Management**: Temporarily disabled problematic workflows
+    - Disabled `deploy.yml`, `deploy-backup.yml`, and `deploy-simple.yml`
+    - Activated `deploy-working.yml` as primary deployment workflow
+
+### Technical Details
+- **Permissions Fix**: Changed from `contents: read` to `contents: write`
+- **Deployment Strategy**: Uses `peaceiris/actions-gh-pages@v4` with enhanced options
+- **Branch Management**: Properly handles gh-pages branch creation and updates
+
 ## [1.33.0] - 2025-01-29
 
 ### Fixed
