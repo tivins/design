@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.33.0] - 2025-01-29
+
+### Fixed
+- **GitHub Pages Deployment**: Resolved deployment issues with GitHub Actions
+  - **Error Resolution**: Fixed "HttpError: Resource not accessible by integration" error
+  - **Workflow Activation**: Re-enabled main deployment workflow (deploy.yml)
+  - **Build Configuration**: Created dedicated Vite config for GitHub Pages deployment
+    - Added `vite.config.pages.js` with proper base path configuration (`/design/`)
+    - Updated build script to `npm run build:pages` for Pages-specific builds
+  - **Workflow Improvements**: Enhanced deployment workflows
+    - Fixed `publish_dir` path to use `./dist` instead of `./`
+    - Updated both `deploy-simple.yml` and `deploy-backup.yml` workflows
+    - Added proper asset handling for GitHub Pages
+
+### Added
+- **Backup Deployment**: Created `deploy-backup.yml` as fallback deployment option
+- **Build Scripts**: Added `build:pages` script for GitHub Pages-specific builds
+
+### Technical Details
+- **Vite Configuration**: Separated library build from Pages build configurations
+- **Asset Handling**: Proper CSS and JS bundling for static site deployment
+- **Path Configuration**: Correct base path setup for GitHub Pages subdirectory
+
 ## [1.32.0] - 2025-01-29
 
 ### Improved

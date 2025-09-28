@@ -1,6 +1,7 @@
-name: Deploy to GitHub Pages (Simple)
+name: Deploy to GitHub Pages (Backup)
 
 on:
+  workflow_dispatch: # Permet de déclencher manuellement
   push:
     branches: [ main ]
 
