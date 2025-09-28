@@ -1,0 +1,351 @@
+// Design Toolkit - Popin (Dropdown Menu)
+// Popin component with multiple variants and positioning options
+
+.popin {
+  position: relative;
+  display: inline-block;
+}
+
+.popin-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: var(--spacing-sm, 0.5rem);
+  border-radius: var(--border-radius-md, 0.375rem);
+  transition: all var(--transition-fast, 0.15s ease-in-out);
+  color: var(--gray-600);
+  
+  &:hover {
+    background-color: var(--gray-100);
+    color: var(--gray-800);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    background-color: var(--gray-200);
+  }
+}
+
+.popin-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  max-width: 400px;
+  width: max-content;
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius-md, 0.375rem);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xs, 0.25rem);
+  margin-top: var(--spacing-xs, 0.25rem);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all var(--transition-normal, 0.2s ease-in-out);
+  display: block;
+  
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.popin-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 0.5rem);
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-normal, 400);
+  color: var(--gray-700);
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-sm, 0.25rem);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease-in-out);
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+  
+  dt-icon {
+    flex-shrink: 0;
+    display: inline-block;
+  }
+  
+  &:hover {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
+  }
+  
+  &:active {
+    background-color: var(--gray-200);
+  }
+  
+  &.disabled {
+    color: var(--gray-400);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  &.danger {
+    color: var(--danger-color);
+    
+    &:hover {
+      background-color: var(--danger-color);
+      color: var(--white);
+    }
+  }
+  
+  &.warning {
+    color: var(--warning-color);
+    
+    &:hover {
+      background-color: var(--warning-color);
+      color: var(--white);
+    }
+  }
+  
+  &.success {
+    color: var(--success-color);
+    
+    &:hover {
+      background-color: var(--success-color);
+      color: var(--white);
+    }
+  }
+}
+
+.popin-divider {
+  height: 1px;
+  background-color: var(--gray-200);
+  margin: var(--spacing-xs, 0.25rem) 0;
+}
+
+.popin-header {
+  padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: var(--spacing-xs, 0.25rem);
+}
+
+// Positioning variants
+.popin-menu-right {
+  left: auto;
+  right: 0;
+}
+
+.popin-menu-center {
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  
+  &.show {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.popin-menu-up {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs, 0.25rem);
+  transform: translateY(10px);
+  
+  &.show {
+    transform: translateY(0);
+  }
+}
+
+// Size variants
+.popin-menu-sm {
+  min-width: 150px;
+  max-width: 250px;
+  width: auto;
+  padding: var(--spacing-xs, 0.25rem);
+  
+  .popin-item {
+    padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.75rem);
+    font-size: var(--font-size-xs, 0.75rem);
+  }
+}
+
+.popin-menu-lg {
+  min-width: 300px;
+  max-width: 500px;
+  width: auto;
+  padding: var(--spacing-sm, 0.5rem);
+  
+  .popin-item {
+    padding: var(--spacing-md, 0.75rem) var(--spacing-lg, 1.25rem);
+    font-size: var(--font-size-base, 1rem);
+  }
+}
+
+// Variant styles
+.popin-menu-primary {
+  border-color: var(--primary-color);
+  
+  .popin-header {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+  }
+}
+
+.popin-menu-success {
+  border-color: var(--success-color);
+  
+  .popin-header {
+    color: var(--success-color);
+    border-bottom-color: var(--success-color);
+  }
+}
+
+.popin-menu-warning {
+  border-color: var(--warning-color);
+  
+  .popin-header {
+    color: var(--warning-color);
+    border-bottom-color: var(--warning-color);
+  }
+}
+
+.popin-menu-danger {
+  border-color: var(--danger-color);
+  
+  .popin-header {
+    color: var(--danger-color);
+    border-bottom-color: var(--danger-color);
+  }
+}
+
+.popin-menu-info {
+  border-color: var(--info-color);
+  
+  .popin-header {
+    color: var(--info-color);
+    border-bottom-color: var(--info-color);
+  }
+}
+
+// Dark theme support
+[data-theme="dark"] .popin-trigger {
+  color: var(--gray-400);
+  
+  &:hover {
+    background-color: var(--gray-800);
+    color: var(--gray-200);
+  }
+  
+  &:active {
+    background-color: var(--gray-700);
+  }
+}
+
+[data-theme="dark"] .popin-menu {
+  background-color: var(--gray-900);
+  border-color: var(--gray-700);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .popin-item {
+  color: var(--gray-300);
+  
+  &:hover {
+    background-color: var(--gray-800);
+    color: var(--white);
+  }
+  
+  &:active {
+    background-color: var(--gray-700);
+  }
+  
+  &.disabled {
+    color: var(--gray-600);
+  }
+}
+
+[data-theme="dark"] .popin-divider {
+  background-color: var(--gray-700);
+}
+
+[data-theme="dark"] .popin-header {
+  color: var(--gray-500);
+  border-bottom-color: var(--gray-700);
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .popin-menu {
+    min-width: 180px;
+    max-width: calc(100vw - 2rem);
+  }
+  
+  .popin-menu-lg {
+    min-width: 250px;
+  }
+}
+
+// Animation utilities
+.popin-fade-in {
+  animation: popin-fade-in 0.2s ease-out;
+}
+
+.popin-slide-down {
+  animation: popin-slide-down 0.2s ease-out;
+}
+
+.popin-slide-up {
+  animation: popin-slide-up 0.2s ease-out;
+}
+
+@keyframes popin-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popin-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popin-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

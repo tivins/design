@@ -5,9 +5,177 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.24.1] - 2025-01-27
+## [1.25.5] - 2025-01-27
+
+### Changed
+- **Popin Examples**: Replaced emojis with dt-icon system in interactive popin examples
+  - Updated all popin menu items to use `<dt-icon>` components instead of emojis
+  - Improved consistency with the design system's iconography
+  - Enhanced accessibility and visual consistency
+  - Updated code examples to reflect the new icon usage
+
+### Technical Details
+- Replaced emoji icons (✏️, 📋, 🔗, 🗑️, 🌙, 🌍, 🔔, ❓, ℹ️, 🏠, 👤, 💬, 📁, 🚪) with appropriate dt-icon names
+- Updated popin item styles to support flexbox layout for proper icon alignment
+- Enhanced `.popin-item` CSS with `display: flex`, `align-items: center`, and `gap` for icon spacing
+- Added specific styles for `dt-icon` within popin items for proper rendering
+- Updated both interactive examples and code documentation
+
+### Icon Mappings
+- ✏️ → `dt-icon name="edit"`
+- 📋 → `dt-icon name="copy"`
+- 🔗 → `dt-icon name="share"`
+- 🗑️ → `dt-icon name="delete"`
+- 🌙 → `dt-icon name="moon"`
+- 🌍 → `dt-icon name="globe"`
+- 🔔 → `dt-icon name="bell"`
+- ❓ → `dt-icon name="help"`
+- ℹ️ → `dt-icon name="info"`
+- 🏠 → `dt-icon name="home"`
+- 👤 → `dt-icon name="user"`
+- 💬 → `dt-icon name="message"`
+- 📁 → `dt-icon name="folder"`
+- 🚪 → `dt-icon name="log-out"`
+
+## [1.25.4] - 2025-01-27
 
 ### Fixed
+- **Popin Menu Width Adaptation**: Improved menu width to better adapt to content
+  - Changed from fixed width constraints to `width: max-content`
+  - Removed minimum width constraints that forced uniform sizing
+  - Enhanced responsive behavior for different content lengths
+  - Improved clickable area sizing to match content width
+  - Better visual consistency with content-based sizing
+
+### Technical Details
+- Updated `.popin-menu` CSS with `width: max-content` for content adaptation
+- Removed `min-width` constraints that prevented proper content sizing
+- Enhanced `.popin-item` with `white-space: nowrap` for consistent text display
+- Improved responsive design for popin menus with varying content lengths
+- Better user experience with appropriately sized clickable areas
+
+## [1.25.3] - 2025-01-27
+
+### Fixed
+- **Popin Item Sizing**: Improved sizing management for clickable elements in popin menus
+  - Removed fixed width constraints that caused overflow issues
+  - Added `flex: 1 1 auto` for better flexbox behavior
+  - Added `min-width: 0` to prevent flex items from overflowing
+  - Added `word-wrap: break-word` and `overflow-wrap: break-word` for proper text handling
+  - Changed popin menu to use `display: flex` and `flex-direction: column`
+  - Increased max-width from 300px to 400px for better content accommodation
+  - Enhanced responsive behavior for different content lengths
+
+### Technical Details
+- Updated `.popin-item` CSS with improved flexbox properties
+- Enhanced `.popin-menu` container with flexbox layout
+- Improved text wrapping and overflow handling
+- Better responsive design for popin menus with varying content
+
+## [1.25.2] - 2025-01-27
+
+### Fixed
+- **Popin Single Menu Behavior**: Fixed issue where multiple popin menus could be open simultaneously
+  - Added `closeAllOtherPopins()` method to automatically close other popins when opening a new one
+  - Ensures only one popin menu is open at a time for better UX
+  - Prevents menu stacking and visual clutter
+- **Popin Item Overflow**: Fixed danger button overflowing outside popin container
+  - Added `max-width: 100%` and `box-sizing: border-box` to `.popin-item`
+  - Added `overflow: hidden` and `text-overflow: ellipsis` for proper text handling
+  - Added `max-width: 300px` to `.popin-menu` container
+  - Ensures all menu items stay within container boundaries
+
+### Technical Details
+- Updated `src/js/popin-component.js` with automatic popin closing logic
+- Enhanced `src/scss/components/_popin.scss` with overflow prevention styles
+- Improved popin component behavior and visual consistency
+- Better responsive design for popin menus
+
+## [1.25.1] - 2025-01-27
+
+### Fixed
+- **Input Borders**: Fixed input border color that was too light
+  - Changed input border color from `var(--gray-400)` to `var(--gray-500)` for better visibility
+  - Applied fix to all form controls (input, select, textarea)
+  - Improved contrast and readability of form elements
+
+### Enhanced
+- **Popin Interactive Examples**: Added comprehensive interactive examples for popin component
+  - Added 3 interactive popin examples with different use cases:
+    - User actions popin (edit, copy, share, delete)
+    - Settings popin (theme, language, notifications, help, about)
+    - Navigation popin (home, profile, messages, files, logout)
+  - Added real-time action logging system
+  - Added toast notifications for user feedback
+  - Added emoji icons for better visual appeal
+  - Added code examples showing how to implement interactive popins
+  - Enhanced user experience with immediate feedback on actions
+
+### Technical Details
+- Updated `src/scss/components/_forms.scss` with improved border colors
+- Added `handlePopinAction()` JavaScript function for interactive examples
+- Added action logging and toast notification system
+- Enhanced popin documentation with practical use cases
+
+## [1.25.0] - 2025-01-27
+
+### Added
+- **New Popin Component**: Added comprehensive dropdown menu component (`dt-popin`)
+  - Multiple positioning options: left, center, right, up
+  - Size variants: small, medium, large
+  - Style variants: primary, success, warning, danger, info
+  - Support for text triggers with custom icons
+  - Menu items with different types: normal, success, warning, danger, disabled
+  - Support for dividers and headers in menus
+  - Full keyboard navigation support (Arrow keys, Enter, Escape)
+  - Click outside to close functionality
+  - ARIA accessibility attributes
+  - Dark theme support
+  - Responsive design for mobile devices
+- **Popin Documentation**: Added comprehensive examples in index.html
+  - Basic popin usage examples
+  - Positioning variants demonstration
+  - Size variants showcase
+  - Style variants examples
+  - Item types demonstration
+  - Code examples for all variants
+- **Popin Testing**: Added comprehensive test suite
+  - Manual testing script with Playwright
+  - Screenshot generation for both dark and light themes
+  - Functional testing of all variants and features
+  - Accessibility testing
+  - Cross-theme compatibility verification
+
+### Technical Details
+- Created `src/scss/components/_popin.scss` with complete styling
+- Created `src/js/popin-component.js` with full Web Component implementation
+- Added popin import to main SCSS file (`src/index.scss`)
+- Added popin script to index.html
+- Added popin section to table of contents
+- Generated test screenshots in `test/screenshots/` directory
+- Component follows established design patterns and conventions
+
+## [1.24.1] - 2025-01-27
+
+### Added
+- Added comprehensive audit report with detailed analysis
+- Added audit folder in docs directory for better organization
+- Added performance metrics and optimization recommendations
+- Added security analysis and best practices review
+- Added code quality assessment with specific improvement suggestions
+- Added documentation completeness evaluation
+- Added testing coverage analysis
+- Added build system and deployment pipeline review
+- Moved audit report to dedicated docs/audit/ directory for better organization
+
+### Changed
+- Improved project organization with dedicated audit documentation
+- Enhanced project structure visibility through comprehensive audit
+- Better organized documentation structure with audit folder
+
+### Fixed
+- Identified and documented potential areas for improvement
+- Highlighted security considerations and best practices
 - **GitHub Pages Deployment Permissions**: Fixed permission denied error for github-actions[bot]
   - Replaced deprecated `peaceiris/actions-gh-pages@v3` with official GitHub Pages actions
   - Added proper permissions configuration (`contents: read`, `pages: write`, `id-token: write`)

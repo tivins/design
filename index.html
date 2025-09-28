@@ -283,6 +283,9 @@
                     <dt-button variant="menu" size="xs" class="toc-link" data-target="#buttons">Buttons</dt-button>
                 </li>
                 <li class="toc-item">
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#popin">Popin</dt-button>
+                </li>
+                <li class="toc-item">
                     <dt-button variant="menu" size="xs" class="toc-link" data-target="#modals">Modals</dt-button>
                 </li>
                 <li class="toc-item">
@@ -446,6 +449,276 @@
     <dt-button variant="primary">Right</dt-button>
 </div>
                 </dt-code-example>
+            </div>
+        </section>
+
+        <!-- Popin Demo -->
+        <section class="demo-section" id="popin">
+            <h2>Popin (Dropdown Menu)</h2>
+            <div class="component-demo">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Basic Popin</h4>
+                        <dt-popin>
+                            <div class="popin-item" data-action="default">Edit</div>
+                            <div class="popin-item" data-action="default">Copy</div>
+                            <div class="popin-item" data-action="default">Share</div>
+                            <div class="popin-divider"></div>
+                            <div class="popin-item danger" data-action="default">Delete</div>
+                        </dt-popin>
+                        
+                        <dt-code-example>
+<dt-popin>
+    <div class="popin-item" data-action="default">Edit</div>
+    <div class="popin-item" data-action="default">Copy</div>
+    <div class="popin-item" data-action="default">Share</div>
+    <div class="popin-divider"></div>
+    <div class="popin-item danger" data-action="default">Delete</div>
+</dt-popin>
+                        </dt-code-example>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h4>Popin with Text Trigger</h4>
+                        <dt-popin trigger-text="Actions" trigger-icon="chevron-down">
+                            <div class="popin-header">File Actions</div>
+                            <div class="popin-item" data-action="default">New File</div>
+                            <div class="popin-item" data-action="default">Open File</div>
+                            <div class="popin-item" data-action="default">Save File</div>
+                            <div class="popin-divider"></div>
+                            <div class="popin-item" data-action="default">Export</div>
+                            <div class="popin-item" data-action="default">Print</div>
+                        </dt-popin>
+                        
+                        <dt-code-example>
+<dt-popin trigger-text="Actions" trigger-icon="chevron-down">
+    <div class="popin-header">File Actions</div>
+    <div class="popin-item" data-action="default">New File</div>
+    <div class="popin-item" data-action="default">Open File</div>
+    <div class="popin-item" data-action="default">Save File</div>
+    <div class="popin-divider"></div>
+    <div class="popin-item" data-action="default">Export</div>
+    <div class="popin-item" data-action="default">Print</div>
+</dt-popin>
+                        </dt-code-example>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h4>Positioning Variants</h4>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <dt-popin position="left">
+                                <div class="popin-item" data-action="default">Left</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin position="center">
+                                <div class="popin-item" data-action="default">Center</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin position="right">
+                                <div class="popin-item" data-action="default">Right</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin position="up">
+                                <div class="popin-item" data-action="default">Up</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                        </div>
+                        
+                        <dt-code-example>
+<dt-popin position="left">...</dt-popin>
+<dt-popin position="center">...</dt-popin>
+<dt-popin position="right">...</dt-popin>
+<dt-popin position="up">...</dt-popin>
+                        </dt-code-example>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h4>Size Variants</h4>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <dt-popin size="sm">
+                                <div class="popin-item" data-action="default">Small</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin size="md">
+                                <div class="popin-item" data-action="default">Medium</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin size="lg">
+                                <div class="popin-item" data-action="default">Large</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                        </div>
+                        
+                        <dt-code-example>
+<dt-popin size="sm">...</dt-popin>
+<dt-popin size="md">...</dt-popin>
+<dt-popin size="lg">...</dt-popin>
+                        </dt-code-example>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h4>Variant Styles</h4>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <dt-popin variant="primary">
+                                <div class="popin-item" data-action="default">Primary</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin variant="success">
+                                <div class="popin-item" data-action="default">Success</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin variant="warning">
+                                <div class="popin-item" data-action="default">Warning</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                            
+                            <dt-popin variant="danger">
+                                <div class="popin-item" data-action="default">Danger</div>
+                                <div class="popin-item" data-action="default">Menu</div>
+                            </dt-popin>
+                        </div>
+                        
+                        <dt-code-example>
+<dt-popin variant="primary">...</dt-popin>
+<dt-popin variant="success">...</dt-popin>
+<dt-popin variant="warning">...</dt-popin>
+<dt-popin variant="danger">...</dt-popin>
+                        </dt-code-example>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h4>Item Types</h4>
+                        <dt-popin trigger-text="More Options">
+                            <div class="popin-header">Actions</div>
+                            <div class="popin-item" data-action="default">Normal Item</div>
+                            <div class="popin-item success" data-action="default">Success Item</div>
+                            <div class="popin-item warning" data-action="default">Warning Item</div>
+                            <div class="popin-item danger" data-action="default">Danger Item</div>
+                            <div class="popin-divider"></div>
+                            <div class="popin-item disabled">Disabled Item</div>
+                        </dt-popin>
+                        
+                        <dt-code-example>
+<dt-popin trigger-text="More Options">
+    <div class="popin-header">Actions</div>
+    <div class="popin-item" data-action="default">Normal Item</div>
+    <div class="popin-item success" data-action="default">Success Item</div>
+    <div class="popin-item warning" data-action="default">Warning Item</div>
+    <div class="popin-item danger" data-action="default">Danger Item</div>
+    <div class="popin-divider"></div>
+    <div class="popin-item disabled">Disabled Item</div>
+</dt-popin>
+                        </dt-code-example>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h4>Exemples Interactifs</h4>
+                        <p>Testez les fonctionnalités interactives des popins :</p>
+                        
+                        <div class="d-flex gap-3 flex-wrap mb-3">
+                            <dt-popin id="interactive-popin-1" trigger-text="Actions Utilisateur">
+                                <div class="popin-item" data-action="edit" onclick="handlePopinAction('edit')">
+                                    <dt-icon name="edit" size="sm"></dt-icon> Modifier
+                                </div>
+                                <div class="popin-item" data-action="copy" onclick="handlePopinAction('copy')">
+                                    <dt-icon name="copy" size="sm"></dt-icon> Copier
+                                </div>
+                                <div class="popin-item" data-action="share" onclick="handlePopinAction('share')">
+                                    <dt-icon name="share" size="sm"></dt-icon> Partager
+                                </div>
+                                <div class="popin-divider"></div>
+                                <div class="popin-item danger" data-action="delete" onclick="handlePopinAction('delete')">
+                                    <dt-icon name="delete" size="sm"></dt-icon> Supprimer
+                                </div>
+                            </dt-popin>
+                            
+                            <dt-popin id="interactive-popin-2" trigger-text="Paramètres" trigger-icon="settings">
+                                <div class="popin-header">Préférences</div>
+                                <div class="popin-item" data-action="theme" onclick="handlePopinAction('theme')">
+                                    <dt-icon name="moon" size="sm"></dt-icon> Thème
+                                </div>
+                                <div class="popin-item" data-action="language" onclick="handlePopinAction('language')">
+                                    <dt-icon name="globe" size="sm"></dt-icon> Langue
+                                </div>
+                                <div class="popin-item" data-action="notifications" onclick="handlePopinAction('notifications')">
+                                    <dt-icon name="bell" size="sm"></dt-icon> Notifications
+                                </div>
+                                <div class="popin-divider"></div>
+                                <div class="popin-item" data-action="help" onclick="handlePopinAction('help')">
+                                    <dt-icon name="help" size="sm"></dt-icon> Aide
+                                </div>
+                                <div class="popin-item" data-action="about" onclick="handlePopinAction('about')">
+                                    <dt-icon name="info" size="sm"></dt-icon> À propos
+                                </div>
+                            </dt-popin>
+                            
+                            <dt-popin id="interactive-popin-3" trigger-text="Navigation" trigger-icon="navigation">
+                                <div class="popin-item" data-action="home" onclick="handlePopinAction('home')">
+                                    <dt-icon name="home" size="sm"></dt-icon> Accueil
+                                </div>
+                                <div class="popin-item" data-action="profile" onclick="handlePopinAction('profile')">
+                                    <dt-icon name="user" size="sm"></dt-icon> Profil
+                                </div>
+                                <div class="popin-item" data-action="messages" onclick="handlePopinAction('messages')">
+                                    <dt-icon name="message" size="sm"></dt-icon> Messages
+                                </div>
+                                <div class="popin-item" data-action="files" onclick="handlePopinAction('files')">
+                                    <dt-icon name="folder" size="sm"></dt-icon> Fichiers
+                                </div>
+                                <div class="popin-divider"></div>
+                                <div class="popin-item" data-action="logout" onclick="handlePopinAction('logout')">
+                                    <dt-icon name="log-out" size="sm"></dt-icon> Déconnexion
+                                </div>
+                            </dt-popin>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <strong>Actions détectées :</strong>
+                            <div id="popin-actions-log" class="mt-2">
+                                <em>Aucune action effectuée pour le moment...</em>
+                            </div>
+                        </div>
+                        
+                        <dt-code-example language="html" title="Popin Interactif" copyable>
+<dt-popin trigger-text="Actions Utilisateur">
+    <div class="popin-item" data-action="edit" onclick="handlePopinAction('edit')">
+        <dt-icon name="edit" size="sm"></dt-icon> Modifier
+    </div>
+    <div class="popin-item" data-action="copy" onclick="handlePopinAction('copy')">
+        <dt-icon name="copy" size="sm"></dt-icon> Copier
+    </div>
+    <div class="popin-item" data-action="share" onclick="handlePopinAction('share')">
+        <dt-icon name="share" size="sm"></dt-icon> Partager
+    </div>
+    <div class="popin-divider"></div>
+    <div class="popin-item danger" data-action="delete" onclick="handlePopinAction('delete')">
+        <dt-icon name="delete" size="sm"></dt-icon> Supprimer
+    </div>
+</dt-popin>
+
+<script>
+function handlePopinAction(action) {
+    const log = document.getElementById('popin-actions-log');
+    const timestamp = new Date().toLocaleTimeString();
+    log.innerHTML += `<div class="mb-1"><strong>${timestamp}:</strong> Action "${action}" effectuée</div>`;
+}
+</script>
+                        </dt-code-example>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1584,6 +1857,7 @@ function getCurrentTheme() {
     <script src="src/js/card-component.js"></script>
     <script src="src/js/modal-component.js"></script>
     <script src="src/js/button-component.js"></script>
+    <script src="src/js/popin-component.js"></script>
     <script src="src/js/form-component.js"></script>
     <script src="src/js/theme-toggle-component.js"></script>
     <script src="src/js/card-background-checker.js"></script>
@@ -1665,6 +1939,29 @@ function getCurrentTheme() {
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.close();
+        }
+        
+        // Popin interactive functions
+        function handlePopinAction(action) {
+            const log = document.getElementById('popin-actions-log');
+            const timestamp = new Date().toLocaleTimeString();
+            
+            // Clear "no actions" message if it's the first action
+            if (log.innerHTML.includes('Aucune action effectuée')) {
+                log.innerHTML = '';
+            }
+            
+            // Add new action log
+            const actionDiv = document.createElement('div');
+            actionDiv.className = 'mb-1';
+            actionDiv.innerHTML = `<strong>${timestamp}:</strong> Action "${action}" effectuée`;
+            log.appendChild(actionDiv);
+            
+            // Scroll to bottom of log
+            log.scrollTop = log.scrollHeight;
+            
+            // Show toast notification
+            showToast(`Action "${action}" effectuée`, 'success');
         }
         
         // Event listeners for modal events

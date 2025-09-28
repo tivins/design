@@ -35,7 +35,7 @@ label {
   color: var(--gray-900);
   background-color: var(--white);
   background-clip: padding-box;
-  border: 1px solid var(--gray-400);
+  border: 1px solid var(--gray-500);
   border-radius: var(--border-radius-md);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   
@@ -191,7 +191,7 @@ textarea.form-control {
     pointer-events: none;
     content: "";
     background-color: var(--white);
-    border: 1px solid var(--gray-400);
+    border: 1px solid var(--gray-500);
   }
   
   &::after {
@@ -236,7 +236,7 @@ textarea.form-control {
   color: var(--gray-900);
   vertical-align: middle;
   background: var(--white) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
-  border: 1px solid var(--gray-400);
+  border: 1px solid var(--gray-500);
   border-radius: var(--border-radius-md);
   appearance: none;
   
@@ -393,7 +393,7 @@ textarea.form-control {
   text-align: center;
   white-space: nowrap;
   background-color: var(--gray-200);
-  border: 1px solid var(--gray-400);
+  border: 1px solid var(--gray-500);
   border-radius: var(--border-radius-md);
 }
 
