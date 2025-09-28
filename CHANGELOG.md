@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.26.0] - 2025-01-27
+
+### Added
+- **New Ghost Button Style**: Added ghost button variants inspired by popin trigger design
+  - **Ghost Base Style**: Transparent background with subtle hover effects
+  - **Ghost Color Variants**: ghost-primary, ghost-secondary, ghost-success, ghost-danger, ghost-warning, ghost-info
+  - **Dark Theme Support**: Proper adaptation to dark theme with appropriate colors
+  - **Hover Effects**: Smooth transitions with background color changes on hover
+  - **Focus States**: Proper focus indicators for accessibility
+  - **Disabled States**: Appropriate styling for disabled ghost buttons
+
+### Enhanced
+- **Button Component**: Extended dt-button component to support ghost variants
+  - Added ghost button styles to both SCSS and JavaScript components
+  - Maintained consistency with existing button architecture
+  - Proper Shadow DOM styling for all ghost variants
+  - Full integration with existing size and icon support
+
+### Technical Details
+- Added comprehensive ghost button styles to `src/scss/components/_buttons.scss`
+- Updated `src/js/button-component.js` with ghost button support
+- Added ghost button examples to `index.html` with code examples
+- Created automated test suite with Puppeteer for ghost button functionality
+- Verified proper styling in both light and dark themes
+- All ghost buttons maintain consistent behavior with existing button variants
+
+### Testing
+- **Automated Testing**: Created comprehensive test suite for ghost buttons
+  - Tested all ghost variants in light and dark themes
+  - Verified hover effects and color transitions
+  - Tested focus states and accessibility features
+  - Confirmed proper integration with existing button system
+- **Visual Verification**: Screenshots captured for both themes
+- **Cross-browser Compatibility**: Tested with Puppeteer for consistent behavior
+
 ## [1.25.5] - 2025-01-27
 
 ### Changed
