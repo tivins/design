@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages (Simple)
 
-on:
-  push:
-    branches: [ main ]
+# Temporarily disabled - use deploy-working.yml instead
+# on:
+#   push:
+#     branches: [ main ]
 
 permissions:
   contents: read
