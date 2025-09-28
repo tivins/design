@@ -383,3 +383,6 @@ class DtTooltip extends HTMLElement {
 }
 
 customElements.define('dt-tooltip', DtTooltip);
+
+// Export for global access
+window.DtTooltip = DtTooltip;

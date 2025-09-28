@@ -314,6 +314,101 @@ class DtButton extends HTMLElement {
           border-color: #343a40;
         }
 
+        /* Ghost buttons (inspired by popin trigger style) */
+        .btn-ghost {
+          color: var(--gray-600);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost:hover {
+          color: var(--gray-800);
+          background-color: var(--gray-100);
+          border-color: transparent;
+        }
+
+        .btn-ghost-primary {
+          color: var(--primary-color);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost-primary:hover {
+          color: var(--white);
+          background-color: var(--primary-color);
+          border-color: var(--primary-color);
+        }
+
+        .btn-ghost-secondary {
+          color: var(--secondary-color);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost-secondary:hover {
+          color: var(--white);
+          background-color: var(--secondary-color);
+          border-color: var(--secondary-color);
+        }
+
+        .btn-ghost-success {
+          color: var(--success-color);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost-success:hover {
+          color: var(--white);
+          background-color: var(--success-color);
+          border-color: var(--success-color);
+        }
+
+        .btn-ghost-danger {
+          color: var(--danger-color);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost-danger:hover {
+          color: var(--white);
+          background-color: var(--danger-color);
+          border-color: var(--danger-color);
+        }
+
+        .btn-ghost-warning {
+          color: var(--warning-color);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost-warning:hover {
+          color: var(--white);
+          background-color: var(--warning-color);
+          border-color: var(--warning-color);
+        }
+
+        .btn-ghost-info {
+          color: var(--info-color);
+          background-color: transparent;
+          border-color: transparent;
+        }
+
+        .btn-ghost-info:hover {
+          color: var(--white);
+          background-color: var(--info-color);
+          border-color: var(--info-color);
+        }
+
+        /* Dark theme support for ghost buttons */
+        :host-context([data-theme="dark"]) .btn-ghost {
+          color: var(--gray-400);
+        }
+
+        :host-context([data-theme="dark"]) .btn-ghost:hover {
+          color: var(--gray-200);
+          background-color: var(--gray-800);
+        }
+
         .btn-link {
           color: var(--primary-color);
           background-color: transparent;

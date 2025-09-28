@@ -165,6 +165,9 @@ class IconComponent extends HTMLElement {
 // Register the custom element
 customElements.define('dt-icon', IconComponent);
 
+// Export for global access
+window.DtIcon = IconComponent;
+
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = IconComponent;

@@ -36,6 +36,297 @@ class DtPopin extends HTMLElement {
     const triggerText = this.getAttribute('trigger-text') || '';
     const menuContent = this.innerHTML || '';
 
+    // Always try to use dt-button first, with fallback
+    this.renderWithDtButton(variant, size, position, triggerIcon, disabled, triggerText, menuContent);
+  }
+
+  renderWithDtButton(variant, size, position, triggerIcon, disabled, triggerText, menuContent) {
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: inline-block;
+          position: relative;
+        }
+
+        .popin {
+          position: relative;
+          display: inline-block;
+        }
+
+        /* Popin trigger now uses dt-button with ghost variant */
+
+        .popin-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1000;
+          min-width: 200px;
+          background-color: var(--white);
+          border: 1px solid var(--gray-200);
+          border-radius: var(--border-radius-md, 0.375rem);
+          box-shadow: var(--shadow-lg);
+          padding: var(--spacing-xs, 0.25rem);
+          margin-top: var(--spacing-xs, 0.25rem);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all var(--transition-normal, 0.2s ease-in-out);
+        }
+
+        .popin-menu.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .popin-item {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-xs, 0.5rem);
+          width: 100%;
+          padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+          font-size: var(--font-size-sm, 0.875rem);
+          font-weight: var(--font-weight-normal, 400);
+          color: var(--gray-700);
+          text-align: left;
+          text-decoration: none;
+          background: none;
+          border: none;
+          border-radius: var(--border-radius-sm, 0.25rem);
+          cursor: pointer;
+          transition: all var(--transition-fast, 0.15s ease-in-out);
+        }
+
+        .popin-item dt-icon {
+          flex-shrink: 0;
+          display: inline-block;
+        }
+
+        .popin-item:hover {
+          background-color: var(--gray-100);
+          color: var(--gray-900);
+        }
+
+        .popin-item:focus {
+          outline: 2px solid var(--primary-color);
+          outline-offset: -2px;
+        }
+
+        .popin-item:active {
+          background-color: var(--gray-200);
+        }
+
+        .popin-item.disabled {
+          color: var(--gray-400);
+          cursor: not-allowed;
+          pointer-events: none;
+        }
+
+        .popin-item.danger {
+          color: var(--danger-color);
+        }
+
+        .popin-item.danger:hover {
+          background-color: var(--danger-color);
+          color: var(--white);
+        }
+
+        .popin-item.warning {
+          color: var(--warning-color);
+        }
+
+        .popin-item.warning:hover {
+          background-color: var(--warning-color);
+          color: var(--white);
+        }
+
+        .popin-item.success {
+          color: var(--success-color);
+        }
+
+        .popin-item.success:hover {
+          background-color: var(--success-color);
+          color: var(--white);
+        }
+
+        .popin-divider {
+          height: 1px;
+          background-color: var(--gray-200);
+          margin: var(--spacing-xs, 0.25rem) 0;
+        }
+
+        .popin-header {
+          padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+          font-size: var(--font-size-xs, 0.75rem);
+          font-weight: var(--font-weight-semibold, 600);
+          color: var(--gray-500);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          border-bottom: 1px solid var(--gray-200);
+          margin-bottom: var(--spacing-xs, 0.25rem);
+        }
+
+        /* Positioning variants */
+        .popin-menu-right {
+          left: auto;
+          right: 0;
+        }
+
+        .popin-menu-center {
+          left: 50%;
+          transform: translateX(-50%) translateY(-10px);
+        }
+
+        .popin-menu-center.show {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        .popin-menu-up {
+          top: auto;
+          bottom: 100%;
+          margin-top: 0;
+          margin-bottom: var(--spacing-xs, 0.25rem);
+          transform: translateY(10px);
+        }
+
+        .popin-menu-up.show {
+          transform: translateY(0);
+        }
+
+        /* Size variants */
+        .popin-menu-sm {
+          min-width: 150px;
+          padding: var(--spacing-xs, 0.25rem);
+        }
+
+        .popin-menu-sm .popin-item {
+          padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.75rem);
+          font-size: var(--font-size-xs, 0.75rem);
+        }
+
+        .popin-menu-lg {
+          min-width: 300px;
+          padding: var(--spacing-sm, 0.5rem);
+        }
+
+        .popin-menu-lg .popin-item {
+          padding: var(--spacing-md, 0.75rem) var(--spacing-lg, 1.25rem);
+          font-size: var(--font-size-base, 1rem);
+        }
+
+        /* Variant styles */
+        .popin-menu-primary {
+          border-color: var(--primary-color);
+        }
+
+        .popin-menu-primary .popin-header {
+          color: var(--primary-color);
+          border-bottom-color: var(--primary-color);
+        }
+
+        .popin-menu-success {
+          border-color: var(--success-color);
+        }
+
+        .popin-menu-success .popin-header {
+          color: var(--success-color);
+          border-bottom-color: var(--success-color);
+        }
+
+        .popin-menu-warning {
+          border-color: var(--warning-color);
+        }
+
+        .popin-menu-warning .popin-header {
+          color: var(--warning-color);
+          border-bottom-color: var(--warning-color);
+        }
+
+        .popin-menu-danger {
+          border-color: var(--danger-color);
+        }
+
+        .popin-menu-danger .popin-header {
+          color: var(--danger-color);
+          border-bottom-color: var(--danger-color);
+        }
+
+        .popin-menu-info {
+          border-color: var(--info-color);
+        }
+
+        .popin-menu-info .popin-header {
+          color: var(--info-color);
+          border-bottom-color: var(--info-color);
+        }
+
+        /* Dark theme support for popin menu and items */
+
+        :host-context([data-theme="dark"]) .popin-menu {
+          background-color: var(--gray-900);
+          border-color: var(--gray-700);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        :host-context([data-theme="dark"]) .popin-item {
+          color: var(--gray-300);
+        }
+
+        :host-context([data-theme="dark"]) .popin-item:hover {
+          background-color: var(--gray-800);
+          color: var(--white);
+        }
+
+        :host-context([data-theme="dark"]) .popin-item:active {
+          background-color: var(--gray-700);
+        }
+
+        :host-context([data-theme="dark"]) .popin-item.disabled {
+          color: var(--gray-600);
+        }
+
+        :host-context([data-theme="dark"]) .popin-divider {
+          background-color: var(--gray-700);
+        }
+
+        :host-context([data-theme="dark"]) .popin-header {
+          color: var(--gray-500);
+          border-bottom-color: var(--gray-700);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+          .popin-menu {
+            min-width: 180px;
+            max-width: calc(100vw - 2rem);
+          }
+
+          .popin-menu-lg {
+            min-width: 250px;
+          }
+        }
+      </style>
+      
+      <div class="popin">
+        <dt-button 
+          variant="ghost"
+          ${disabled ? 'disabled' : ''}
+          ${triggerText ? '' : 'icon="' + triggerIcon + '"'}
+          aria-haspopup="true" 
+          aria-expanded="${this.isOpen}"
+        >
+          ${triggerText ? triggerText : ''}
+        </dt-button>
+        
+        <div class="popin-menu ${position !== 'left' ? `popin-menu-${position}` : ''} ${size !== 'md' ? `popin-menu-${size}` : ''} ${variant !== 'default' ? `popin-menu-${variant}` : ''}">
+          ${menuContent}
+        </div>
+      </div>
+    `;
+  }
+
+  renderOriginal(variant, size, position, triggerIcon, disabled, triggerText, menuContent) {
+
     this.shadowRoot.innerHTML = `
       <style>
         :host {
@@ -365,7 +656,7 @@ class DtPopin extends HTMLElement {
   }
 
   setupEventListeners() {
-    const trigger = this.shadowRoot.querySelector('.popin-trigger');
+    const trigger = this.shadowRoot.querySelector('dt-button') || this.shadowRoot.querySelector('.popin-trigger');
     const menu = this.shadowRoot.querySelector('.popin-menu');
 
     if (trigger) {
@@ -399,7 +690,16 @@ class DtPopin extends HTMLElement {
         switch (e.key) {
           case 'Escape':
             this.close();
-            trigger.focus();
+            // Focus the trigger (either dt-button or popin-trigger)
+            const trigger = this.shadowRoot.querySelector('dt-button') || this.shadowRoot.querySelector('.popin-trigger');
+            if (trigger.tagName === 'DT-BUTTON') {
+              const buttonElement = trigger.shadowRoot.querySelector('.btn');
+              if (buttonElement) {
+                buttonElement.focus();
+              }
+            } else {
+              trigger.focus();
+            }
             break;
           case 'ArrowDown':
             e.preventDefault();
@@ -441,7 +741,7 @@ class DtPopin extends HTMLElement {
     
     this.isOpen = true;
     const menu = this.shadowRoot.querySelector('.popin-menu');
-    const trigger = this.shadowRoot.querySelector('.popin-trigger');
+    const trigger = this.shadowRoot.querySelector('dt-button') || this.shadowRoot.querySelector('.popin-trigger');
     
     if (menu) {
       menu.classList.add('show');
@@ -458,7 +758,7 @@ class DtPopin extends HTMLElement {
   close() {
     this.isOpen = false;
     const menu = this.shadowRoot.querySelector('.popin-menu');
-    const trigger = this.shadowRoot.querySelector('.popin-trigger');
+    const trigger = this.shadowRoot.querySelector('dt-button') || this.shadowRoot.querySelector('.popin-trigger');
     
     if (menu) {
       menu.classList.remove('show');

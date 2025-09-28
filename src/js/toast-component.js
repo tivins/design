@@ -269,3 +269,6 @@ class DtToast extends HTMLElement {
 }
 
 customElements.define('dt-toast', DtToast);
+
+// Export for global access
+window.DtToast = DtToast;

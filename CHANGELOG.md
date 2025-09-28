@@ -5,6 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.28.0] - 2025-01-27
+
+### Fixed
+- **JavaScript Errors Resolution**: Fixed all JavaScript errors on page load
+  - **DtTooltip Error**: Added global export `window.DtTooltip` and wrapped usage in DOMContentLoaded
+  - **DtToast Error**: Added global export `window.DtToast` and wrapped usage in DOMContentLoaded  
+  - **DtIcon Error**: Added global export `window.DtIcon` and wrapped usage in DOMContentLoaded
+  - **ThemeToggle Error**: Fixed `getCurrentTheme is not a function` by adding proper error handling
+  - **Card Background Checker Error**: Fixed `checkAllCards is not a function` by correcting method name to `checkAllComponents`
+  - **Script Loading Order**: Ensured all component scripts execute after DOM is ready
+  - **Error Prevention**: Added type checks before calling component methods
+
+### Technical Details
+- **Global Exports**: Added `window.DtTooltip`, `window.DtToast`, `window.DtIcon` exports
+- **DOM Ready Wrapping**: Wrapped all inline component usage in `DOMContentLoaded` events
+- **Error Handling**: Added `typeof` checks before calling component methods
+- **Method Name Correction**: Fixed `checkAllCards()` to `checkAllComponents()` in card background checker
+- **Testing**: Created comprehensive test suite to verify error resolution
+- **Screenshots**: Added test screenshots for verification
+
+## [1.27.0] - 2025-01-27
+
+### Refactored
+- **Popin Component Refactoring**: Eliminated code duplication by refactoring popin triggers to use dt-button with ghost variant
+  - **Code Deduplication**: Removed duplicate CSS styles between popin triggers and ghost buttons
+  - **Unified Button System**: Popin triggers now use the same dt-button component with ghost variant
+  - **Maintained Functionality**: All popin features (text, icons, positioning, variants) work identically
+  - **Improved Maintainability**: Single source of truth for ghost button styling
+  - **Backward Compatibility**: No breaking changes to popin API or behavior
+  - **Performance**: Reduced CSS bundle size by eliminating duplicate styles
+
+### Technical Details
+- **Popin Trigger Migration**: Changed from custom `.popin-trigger` to `<dt-button variant="ghost">`
+- **Event Handling**: Updated event listeners to work with both dt-button and fallback implementations
+- **Focus Management**: Improved keyboard navigation and focus handling for dt-button integration
+- **Shadow DOM**: Maintained proper Shadow DOM encapsulation for both implementations
+- **Theme Support**: Preserved full dark/light theme support through unified ghost button styles
+
 ## [1.26.0] - 2025-01-27
 
 ### Added

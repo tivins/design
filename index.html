@@ -396,6 +396,15 @@
                     <dt-button variant="outline-success">Outline Success</dt-button>
                 </div>
                 <div class="mb-3">
+                    <dt-button variant="ghost">Ghost Button</dt-button>
+                    <dt-button variant="ghost-primary">Ghost Primary</dt-button>
+                    <dt-button variant="ghost-secondary">Ghost Secondary</dt-button>
+                    <dt-button variant="ghost-success">Ghost Success</dt-button>
+                    <dt-button variant="ghost-danger">Ghost Danger</dt-button>
+                    <dt-button variant="ghost-warning">Ghost Warning</dt-button>
+                    <dt-button variant="ghost-info">Ghost Info</dt-button>
+                </div>
+                <div class="mb-3">
                     <dt-button variant="link">Link Button</dt-button>
                     <dt-button variant="link" disabled>Disabled Link</dt-button>
                 </div>
@@ -427,6 +436,17 @@
     <dt-button variant="outline-primary">Outline Primary</dt-button>
     <dt-button variant="outline-secondary">Outline Secondary</dt-button>
     <dt-button variant="outline-success">Outline Success</dt-button>
+</div>
+
+<!-- Boutons ghost (inspirés du style des popin triggers) -->
+<div class="mb-3">
+    <dt-button variant="ghost">Ghost Button</dt-button>
+    <dt-button variant="ghost-primary">Ghost Primary</dt-button>
+    <dt-button variant="ghost-secondary">Ghost Secondary</dt-button>
+    <dt-button variant="ghost-success">Ghost Success</dt-button>
+    <dt-button variant="ghost-danger">Ghost Danger</dt-button>
+    <dt-button variant="ghost-warning">Ghost Warning</dt-button>
+    <dt-button variant="ghost-info">Ghost Info</dt-button>
 </div>
 
 <!-- Boutons lien -->
@@ -1196,10 +1216,15 @@ function handlePopinAction(action) {
 
 <!-- Création programmatique -->
 <script>
-const tooltip = DtTooltip.create('Texte du tooltip', {
-    position: 'bottom',
-    theme: 'success',
-    delay: 300
+// Attendre que les composants soient chargés
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof DtTooltip !== 'undefined') {
+        const tooltip = DtTooltip.create('Texte du tooltip', {
+            position: 'bottom',
+            theme: 'success',
+            delay: 300
+        });
+    }
 });
 </script>
                 </dt-code-example>
@@ -1309,10 +1334,15 @@ const tooltip = DtTooltip.create('Texte du tooltip', {
 
 <!-- Toast programmatique -->
 <script>
-DtToast.show('Message de toast', {
-    variant: 'success',
-    duration: 3000,
-    position: 'top-right'
+// Attendre que les composants soient chargés
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof DtToast !== 'undefined') {
+        DtToast.show('Message de toast', {
+            variant: 'success',
+            duration: 3000,
+            position: 'top-right'
+        });
+    }
 });
 </script>
                 </dt-code-example>
@@ -1547,9 +1577,14 @@ DtToast.show('Message de toast', {
 
 <!-- JavaScript pour création programmatique -->
 <script>
-const icon = DtIcon.create('heart', { 
-    size: 'lg', 
-    color: 'danger' 
+// Attendre que les composants soient chargés
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof DtIcon !== 'undefined') {
+        const icon = DtIcon.create('heart', { 
+            size: 'lg', 
+            color: 'danger' 
+        });
+    }
 });
 </script>
                 </dt-code-example>
@@ -1671,15 +1706,23 @@ const icon = DtIcon.create('heart', {
 
 <!-- JavaScript pour contrôle programmatique -->
 <script>
-// Obtenir le composant theme toggle
-const themeToggle = document.querySelector('dt-theme-toggle');
-
-// Obtenir le thème actuel
-const currentTheme = themeToggle.getCurrentTheme();
-console.log('Thème actuel:', currentTheme);
-
-// Définir un thème spécifique
-themeToggle.setTheme('dark');
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtenir le composant theme toggle
+    const themeToggle = document.querySelector('dt-theme-toggle');
+    
+    if (themeToggle) {
+        // Attendre un peu pour que le composant soit complètement initialisé
+        setTimeout(() => {
+            // Obtenir le thème actuel
+            const currentTheme = themeToggle.getCurrentTheme();
+            console.log('Thème actuel:', currentTheme);
+            
+            // Définir un thème spécifique (commenté pour éviter de forcer le thème)
+            // themeToggle.setTheme('dark');
+        }, 100);
+    }
+});
 
 // Écouter les changements de thème
 window.addEventListener('themeChanged', function(e) {
@@ -1689,13 +1732,19 @@ window.addEventListener('themeChanged', function(e) {
 // Fonctions utilitaires
 function setTheme(theme) {
     const toggle = document.querySelector('dt-theme-toggle');
-    toggle.setTheme(theme);
+    if (toggle && typeof toggle.setTheme === 'function') {
+        toggle.setTheme(theme);
+    }
 }
 
 function getCurrentTheme() {
     const toggle = document.querySelector('dt-theme-toggle');
-    const theme = toggle.getCurrentTheme();
-    alert('Thème actuel: ' + theme);
+    if (toggle && typeof toggle.getCurrentTheme === 'function') {
+        const theme = toggle.getCurrentTheme();
+        alert('Thème actuel: ' + theme);
+    } else {
+        alert('Composant theme toggle non disponible');
+    }
 }
 </script>
                 </dt-code-example>

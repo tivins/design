@@ -28,6 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.55.1",
+    "puppeteer": "^24.22.3",
     "rimraf": "^5.0.0",
     "sass": "^1.69.5",
     "stylelint": "^16.0.2",

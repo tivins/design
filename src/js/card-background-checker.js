@@ -132,7 +132,7 @@ class CardBackgroundChecker {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-          setTimeout(() => this.checkAllCards(), 100); // Small delay for theme transition
+          setTimeout(() => this.checkAllComponents(), 100); // Small delay for theme transition
         }
       });
     });
