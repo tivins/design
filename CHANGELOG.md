@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.32.0] - 2025-01-29
+
+### Improved
+- **Input Borders Dark Mode**: Enhanced input border styling for dark mode following 2025 web design trends
+  - **Subtle Border Colors**: Added new CSS variables for delicate dark mode borders
+    - `--border-primary: #30363d` - Main border color for inputs and form controls
+    - `--border-secondary: #21262d` - Secondary border color for containers
+    - `--border-tertiary: #161b22` - Tertiary border color for subtle elements
+  - **Form Controls Enhancement**: Updated `.form-control` styles for dark mode
+    - Applied subtle border colors instead of bright gray-500
+    - Enhanced focus states with proper primary color highlighting
+    - Improved placeholder text color for better readability
+    - Added smooth transitions for theme switching
+  - **Custom Select Styling**: Enhanced `.custom-select` component for dark mode
+    - Applied consistent subtle border colors
+    - Updated dropdown arrow color for dark theme
+    - Improved disabled state styling
+  - **Input Group Components**: Updated `.input-group-text` styling
+    - Applied consistent border colors across all input group elements
+    - Enhanced background and text colors for dark mode
+  - **Design Philosophy**: Implemented 2025 web design best practices
+    - Discreet, fine, and delicate borders as requested
+    - Better visual hierarchy without overwhelming contrast
+    - Smooth transitions between light and dark themes
+  - **Testing**: Added comprehensive testing for border color verification
+    - Automated tests confirm correct RGB values in dark mode
+    - Screenshots captured for visual verification
+    - Both light and dark mode compatibility ensured
+
 ## [1.31.0] - 2025-01-28
 
 ### Fixed

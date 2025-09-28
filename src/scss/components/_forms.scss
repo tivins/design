@@ -37,7 +37,7 @@ label {
   background-clip: padding-box;
   border: 1px solid var(--gray-500);
   border-radius: var(--border-radius-md);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
   
   &:focus {
     color: var(--gray-900);
@@ -57,6 +57,30 @@ label {
     background-color: var(--gray-200);
     opacity: 1;
     cursor: not-allowed;
+  }
+}
+
+// Dark theme form controls - subtle and delicate borders
+[data-theme="dark"] .form-control {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-primary);
+  
+  &:focus {
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 158, 255, 0.25);
+  }
+  
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+  
+  &:disabled,
+  &[readonly] {
+    background-color: var(--bg-secondary);
+    color: var(--text-tertiary);
   }
 }
 
@@ -239,6 +263,7 @@ textarea.form-control {
   border: 1px solid var(--gray-500);
   border-radius: var(--border-radius-md);
   appearance: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
   
   &:focus {
     border-color: var(--primary-color);
@@ -250,6 +275,24 @@ textarea.form-control {
     color: var(--gray-500);
     background-color: var(--gray-200);
     cursor: not-allowed;
+  }
+}
+
+// Dark theme custom select - subtle and delicate borders
+[data-theme="dark"] .custom-select {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-primary);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23f0f6fc' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+  
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 158, 255, 0.25);
+  }
+  
+  &:disabled {
+    color: var(--text-tertiary);
+    background-color: var(--bg-secondary);
   }
 }
 
@@ -395,6 +438,14 @@ textarea.form-control {
   background-color: var(--gray-200);
   border: 1px solid var(--gray-500);
   border-radius: var(--border-radius-md);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+// Dark theme input group text - subtle and delicate borders
+[data-theme="dark"] .input-group-text {
+  color: var(--text-secondary);
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-primary);
 }
 
 .input-group-prepend .input-group-text {
