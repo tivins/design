@@ -5,6 +5,64 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.30.0] - 2025-01-28
+
+### Changed
+- **Complete Translation to English**: Translated all French content to English throughout the project
+  - **index.html**: Translated all demo sections, code examples, and interactive content
+    - Table of Contents: "Table des matières" → "Table of Contents"
+    - All section titles and descriptions translated
+    - Code examples with English comments and titles
+    - Interactive popin examples with English labels
+    - Alert messages and tooltip content translated
+    - Icon names and descriptions in English
+    - Theme toggle documentation and examples
+    - JavaScript function comments and messages translated
+  - **docs/DOCUMENTATION.md**: Complete translation of project documentation
+    - Overview and feature descriptions
+    - Installation and usage instructions
+    - Code examples and customization guides
+    - Development guidelines and contribution instructions
+  - **Consistent English Language**: All user-facing content now in English
+    - Component descriptions and usage examples
+    - Error messages and notifications
+    - Interactive elements and tooltips
+    - Documentation and help text
+
+### Technical Details
+- **Translation Scope**: All French text in demo page and documentation translated
+- **Code Examples**: HTML comments and JavaScript messages updated to English
+- **User Interface**: All interactive elements now display English text
+- **Documentation**: Complete translation of technical documentation
+- **Consistency**: Maintained consistent terminology throughout the project
+- **Accessibility**: Improved accessibility for English-speaking users
+
+### Files Modified
+- `index.html`: Complete translation of demo content and examples
+- `docs/DOCUMENTATION.md`: Full documentation translation
+- All interactive elements and user-facing content now in English
+
+## [1.29.0] - 2025-09-28
+
+### Added
+- **Comprehensive Project Audit**: Completion of a full audit of the Design Toolkit project
+  - **Structure Analysis**: Evaluation of overall architecture and organization
+  - **Component Review**: Detailed analysis of JavaScript components and Web Components
+  - **Style Verification**: Audit of SCSS styles and CSS architecture
+  - **Functional Testing**: Validation of features and automated tests
+  - **Performance Analysis**: Assessment of performance metrics and optimizations
+  - **Security Review**: Security audit and best practices verification
+  - **Maintainability Evaluation**: Analysis of code maintainability and organization
+  - **Final Report**: Generation of a complete audit report with recommendations
+
+### Technical Details
+- **Overall Score**: 8.7/10 with detailed evaluation of all aspects
+- **Audit Report**: Creation of the file `docs/audit/AUDIT_REPORT_COMPLET.md`
+- **Performance Metrics**: CSS 94.95 kB (14.67 kB gzipped), build time 732ms
+- **Security**: 4 moderate vulnerabilities in development dependencies
+- **Recommendations**: Sass migration, unit tests, dependency updates
+- **Conclusion**: Project approved for production with minor improvements
+
 ## [1.28.0] - 2025-01-27
 
 ### Fixed

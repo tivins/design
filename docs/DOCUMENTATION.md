@@ -1,54 +1,54 @@
 # Design Toolkit - Documentation
 
-## Vue d'ensemble
+## Overview
 
-Le Design Toolkit est un framework CSS moderne et léger, inspiré de Bootstrap, construit avec les dernières technologies web. Il offre une approche mobile-first avec des composants réutilisables et un système de design cohérent.
+The Design Toolkit is a modern and lightweight CSS framework, inspired by Bootstrap, built with the latest web technologies. It offers a mobile-first approach with reusable components and a consistent design system.
 
-## Fonctionnalités principales
+## Main Features
 
-### 🎨 **Architecture moderne**
-- Variables CSS personnalisables
-- Architecture modulaire SCSS
-- Système de build optimisé avec Vite
-- Support des préfixes vendor automatique
+### 🎨 **Modern Architecture**
+- Customizable CSS variables
+- Modular SCSS architecture
+- Optimized build system with Vite
+- Automatic vendor prefix support
 
 ### 📱 **Responsive Design**
-- Approche mobile-first
-- Système de grille flexible (12 colonnes)
-- Breakpoints configurables
-- Composants adaptatifs
+- Mobile-first approach
+- Flexible grid system (12 columns)
+- Configurable breakpoints
+- Adaptive components
 
-### 🧩 **Composants complets**
-- **Boutons** : 8 variantes + outline + tailles
-- **Formulaires** : Inputs, selects, checkboxes, radios, validation
-- **Cartes** : Header, body, footer, variantes colorées
-- **Navigation** : Navbar, nav, breadcrumb, pagination
-- **Alertes** : Toutes variantes avec option dismissible
-- **Badges** : Variantes colorées + pill
-- **Modales** : Responsive avec backdrop
+### 🧩 **Complete Components**
+- **Buttons**: 8 variants + outline + sizes
+- **Forms**: Inputs, selects, checkboxes, radios, validation
+- **Cards**: Header, body, footer, colored variants
+- **Navigation**: Navbar, nav, breadcrumb, pagination
+- **Alerts**: All variants with dismissible option
+- **Badges**: Colored variants + pill
+- **Modals**: Responsive with backdrop
 
-### 🛠️ **Utilitaires**
-- **Espacement** : Margin/padding responsive
-- **Couleurs** : Background/text avec palette complète
-- **Display** : Flexbox, visibility, positioning
-- **Typographie** : Alignment, weight, size, decoration
+### 🛠️ **Utilities**
+- **Spacing**: Responsive margin/padding
+- **Colors**: Background/text with complete palette
+- **Display**: Flexbox, visibility, positioning
+- **Typography**: Alignment, weight, size, decoration
 
-## Structure du projet
+## Project Structure
 
 ```
 design-toolkit/
 ├── src/
-│   ├── index.scss              # Point d'entrée principal
+│   ├── index.scss              # Main entry point
 │   └── scss/
-│       ├── _variables.scss     # Variables CSS et tokens
-│       ├── base/               # Styles de base
+│       ├── _variables.scss     # CSS variables and tokens
+│       ├── base/               # Base styles
 │       │   ├── _reset.scss
 │       │   ├── _typography.scss
 │       │   └── _utilities.scss
-│       ├── layout/             # Système de layout
+│       ├── layout/             # Layout system
 │       │   ├── _grid.scss
 │       │   └── _container.scss
-│       ├── components/         # Composants UI
+│       ├── components/         # UI components
 │       │   ├── _buttons.scss
 │       │   ├── _forms.scss
 │       │   ├── _cards.scss
@@ -56,35 +56,35 @@ design-toolkit/
 │       │   ├── _alerts.scss
 │       │   ├── _badges.scss
 │       │   └── _modals.scss
-│       └── utilities/          # Classes utilitaires
+│       └── utilities/          # Utility classes
 │           ├── _spacing.scss
 │           ├── _colors.scss
 │           ├── _display.scss
 │           ├── _flexbox.scss
 │           └── _text.scss
-├── dist/                       # Fichiers compilés
-├── demo.html                   # Page de démonstration
+├── dist/                       # Compiled files
+├── demo.html                   # Demo page
 ├── package.json
 ├── vite.config.js
 └── .stylelintrc.json
 ```
 
-## Installation et utilisation
+## Installation and Usage
 
 ### Installation
 ```bash
 npm install
 ```
 
-### Développement
+### Development
 ```bash
-npm run dev          # Serveur de développement
-npm run build        # Build de production
-npm run preview      # Aperçu du build
-npm run lint         # Linting CSS
+npm run dev          # Development server
+npm run build        # Production build
+npm run preview      # Build preview
+npm run lint         # CSS linting
 ```
 
-### Utilisation dans un projet
+### Usage in a Project
 ```html
 <!DOCTYPE html>
 <html>
@@ -97,8 +97,8 @@ npm run lint         # Linting CSS
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Titre</h5>
-                        <p class="card-text">Contenu</p>
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Content</p>
                         <button class="btn btn-primary">Action</button>
                     </div>
                 </div>
@@ -109,10 +109,10 @@ npm run lint         # Linting CSS
 </html>
 ```
 
-## Personnalisation
+## Customization
 
-### Variables CSS
-Le toolkit utilise des variables CSS pour faciliter la personnalisation :
+### CSS Variables
+The toolkit uses CSS variables for easy customization:
 
 ```css
 :root {
@@ -141,27 +141,27 @@ Le toolkit utilise des variables CSS pour faciliter la personnalisation :
 --breakpoint-2xl: 1400px;
 ```
 
-## Exemples d'utilisation
+## Usage Examples
 
-### Système de grille
+### Grid System
 ```html
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
-            <!-- Contenu -->
+            <!-- Content -->
         </div>
     </div>
 </div>
 ```
 
-### Boutons
+### Buttons
 ```html
 <button class="btn btn-primary">Primary</button>
 <button class="btn btn-outline-secondary">Outline</button>
 <button class="btn btn-success btn-lg">Large Success</button>
 ```
 
-### Formulaires
+### Forms
 ```html
 <form>
     <div class="form-group">
@@ -172,13 +172,13 @@ Le toolkit utilise des variables CSS pour faciliter la personnalisation :
 </form>
 ```
 
-### Cartes
+### Cards
 ```html
 <div class="card">
     <div class="card-header">Header</div>
     <div class="card-body">
-        <h5 class="card-title">Titre</h5>
-        <p class="card-text">Contenu</p>
+        <h5 class="card-title">Title</h5>
+        <p class="card-text">Content</p>
     </div>
     <div class="card-footer">Footer</div>
 </div>
@@ -186,34 +186,34 @@ Le toolkit utilise des variables CSS pour faciliter la personnalisation :
 
 ## Performance
 
-- **Taille** : ~67KB (non compressé), ~10KB (gzip)
-- **Compatibilité** : Chrome, Firefox, Safari, Edge (dernières 2 versions)
-- **Accessibilité** : Respect des standards WCAG
-- **Performance** : CSS optimisé et modulaire
+- **Size**: ~67KB (uncompressed), ~10KB (gzip)
+- **Compatibility**: Chrome, Firefox, Safari, Edge (last 2 versions)
+- **Accessibility**: WCAG standards compliance
+- **Performance**: Optimized and modular CSS
 
-## Développement
+## Development
 
-### Scripts disponibles
-- `npm run dev` : Serveur de développement Vite
-- `npm run build` : Build de production optimisé
-- `npm run preview` : Aperçu du build de production
-- `npm run lint` : Vérification du code CSS
-- `npm run lint:fix` : Correction automatique du linting
+### Available Scripts
+- `npm run dev`: Vite development server
+- `npm run build`: Optimized production build
+- `npm run preview`: Production build preview
+- `npm run lint`: CSS code verification
+- `npm run lint:fix`: Automatic linting fixes
 
-### Standards de code
-- Stylelint configuré avec des règles adaptées
-- Commentaires en anglais
-- Structure modulaire SCSS
-- Variables CSS pour la cohérence
+### Code Standards
+- Stylelint configured with adapted rules
+- Comments in English
+- Modular SCSS structure
+- CSS variables for consistency
 
-## Licence
+## License
 
-MIT License - Voir le fichier LICENSE pour plus de détails.
+MIT License - See LICENSE file for details.
 
-## Contribution
+## Contributing
 
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/nouvelle-fonctionnalite`)
-3. Commit les changements (`git commit -am 'Ajouter nouvelle fonctionnalité'`)
-4. Push vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
-5. Créer une Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -am 'Add new feature'`)
+4. Push to branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
