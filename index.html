@@ -290,6 +290,7 @@
                 </li>
                 <li class="toc-item">
                     <dt-button variant="menu" size="xs" class="toc-link" data-target="#forms">Forms</dt-button>
+                    <dt-button variant="menu" size="xs" class="toc-link" data-target="#checkbox">Checkbox</dt-button>
                 </li>
                 <li class="toc-item">
                     <dt-button variant="menu" size="xs" class="toc-link" data-target="#cards">Cards</dt-button>
@@ -950,6 +951,119 @@ function handlePopinAction(action) {
     <!-- Submit button -->
     <dt-button variant="primary" type="submit">Submit</dt-button>
 </dt-form>
+                </dt-code-example>
+            </div>
+        </section>
+
+        <!-- Checkbox Component Demo -->
+        <section class="demo-section" id="checkbox">
+            <h2>Checkbox Component</h2>
+            
+            <div class="component-demo">
+                <h4>Basic Checkboxes</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                    <dt-checkbox label="Basic Checkbox"></dt-checkbox>
+                    <dt-checkbox label="Checked Checkbox" checked></dt-checkbox>
+                    <dt-checkbox label="Disabled Checkbox" disabled></dt-checkbox>
+                    <dt-checkbox label="Disabled Checked Checkbox" disabled checked></dt-checkbox>
+                </div>
+
+                <h4>Different Sizes</h4>
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                    <dt-checkbox size="sm" label="Small"></dt-checkbox>
+                    <dt-checkbox size="md" label="Medium"></dt-checkbox>
+                    <dt-checkbox size="lg" label="Large"></dt-checkbox>
+                </div>
+
+                <h4>Different Variants</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                    <dt-checkbox variant="primary" label="Primary" checked></dt-checkbox>
+                    <dt-checkbox variant="secondary" label="Secondary" checked></dt-checkbox>
+                    <dt-checkbox variant="success" label="Success" checked></dt-checkbox>
+                    <dt-checkbox variant="danger" label="Danger" checked></dt-checkbox>
+                    <dt-checkbox variant="warning" label="Warning" checked></dt-checkbox>
+                    <dt-checkbox variant="info" label="Info" checked></dt-checkbox>
+                </div>
+
+                <h4>Interactive Examples</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                    <dt-checkbox label="I agree to the terms and conditions"></dt-checkbox>
+                    <dt-checkbox label="Subscribe to newsletter"></dt-checkbox>
+                    <dt-checkbox label="Enable notifications"></dt-checkbox>
+                    <dt-checkbox label="Remember me"></dt-checkbox>
+                </div>
+
+                <h4>Code Examples:</h4>
+                <dt-code-example language="html" title="Basic Checkbox" copyable>
+<!-- Basic checkbox -->
+<dt-checkbox label="Basic Checkbox"></dt-checkbox>
+
+<!-- Checked checkbox -->
+<dt-checkbox label="Checked Checkbox" checked></dt-checkbox>
+
+<!-- Disabled checkbox -->
+<dt-checkbox label="Disabled Checkbox" disabled></dt-checkbox>
+
+<!-- Indeterminate checkbox -->
+                </dt-code-example>
+
+                <dt-code-example language="html" title="Checkbox Sizes" copyable>
+<!-- Different sizes -->
+<dt-checkbox size="sm" label="Small"></dt-checkbox>
+<dt-checkbox size="md" label="Medium"></dt-checkbox>
+<dt-checkbox size="lg" label="Large"></dt-checkbox>
+                </dt-code-example>
+
+                <dt-code-example language="html" title="Checkbox Variants" copyable>
+<!-- Different variants -->
+<dt-checkbox variant="primary" label="Primary" checked></dt-checkbox>
+<dt-checkbox variant="secondary" label="Secondary" checked></dt-checkbox>
+<dt-checkbox variant="success" label="Success" checked></dt-checkbox>
+<dt-checkbox variant="danger" label="Danger" checked></dt-checkbox>
+<dt-checkbox variant="warning" label="Warning" checked></dt-checkbox>
+<dt-checkbox variant="info" label="Info" checked></dt-checkbox>
+                </dt-code-example>
+
+                <dt-code-example language="html" title="Checkbox with Custom Content" copyable>
+<!-- Checkbox with HTML content -->
+<dt-checkbox>
+    <strong>Bold Label</strong> with <em>emphasis</em>
+</dt-checkbox>
+
+<!-- Checkbox with complex content -->
+<dt-checkbox>
+    <div>
+        <strong>Terms and Conditions</strong><br>
+        <small>Please read our terms before proceeding</small>
+    </div>
+</dt-checkbox>
+                </dt-code-example>
+
+                <dt-code-example language="javascript" title="JavaScript API" copyable>
+// Create checkbox programmatically
+const checkbox = DtCheckbox.create({
+    label: 'Programmatic Checkbox',
+    variant: 'success',
+    size: 'lg',
+    checked: true
+});
+
+// Add to DOM
+document.body.appendChild(checkbox);
+
+// Listen to change events
+checkbox.addEventListener('dt-checkbox-change', (e) => {
+    console.log('Checkbox changed:', e.detail);
+    console.log('Checked:', e.detail.checked);
+    console.log('Indeterminate:', e.detail.indeterminate);
+});
+
+// Control checkbox programmatically
+checkbox.setChecked(true);
+checkbox.setIndeterminate(false);
+checkbox.setDisabled(false);
+checkbox.setSize('md');
+checkbox.setVariant('primary');
                 </dt-code-example>
             </div>
         </section>
@@ -1949,6 +2063,7 @@ function getCurrentTheme() {
     <script src="src/js/card-component.js"></script>
     <script src="src/js/modal-component.js"></script>
     <script src="src/js/button-component.js"></script>
+    <script src="src/js/checkbox-component.js"></script>
     <script src="src/js/popin-component.js"></script>
     <script src="src/js/form-component.js"></script>
     <script src="src/js/theme-toggle-component.js"></script>

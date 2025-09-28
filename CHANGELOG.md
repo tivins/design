@@ -5,6 +5,89 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.36.0] - 2025-01-29
+
+### ✨ New Features
+- **Modern Checkbox Design**: Complete redesign following 2025 UI/UX trends
+- **Switch/Toggle Style**: Replaced traditional checkboxes with modern switch design
+- **Micro-interactions**: Added subtle animations and hover effects
+- **Enhanced Accessibility**: Improved focus states and keyboard navigation
+
+### 🎨 Design Improvements
+- **Fin et délicat**: Sleek, minimalist design with organic rounded shapes
+- **Modern Switch**: Toggle-style interface instead of traditional checkboxes
+- **Smooth Animations**: Cubic-bezier transitions for fluid interactions
+- **Responsive Design**: Optimized for mobile and desktop experiences
+- **Dark Theme**: Enhanced dark mode support with proper contrast
+
+### 🔧 Technical Changes
+- **Removed Indeterminate State**: Simplified to binary checked/unchecked states
+- **CSS Custom Properties**: Better integration with design system variables
+- **Performance**: Optimized rendering and event handling
+- **Accessibility**: WCAG 2.1 AA compliant focus management
+
+### 🐛 Bug Fixes
+- **Toggle Functionality**: Fixed checkbox toggle behavior across all states
+- **Event Handling**: Resolved multiple event listener conflicts
+- **Visual State Sync**: Ensured visual state matches internal state
+- **Label Interaction**: Fixed label click functionality
+
+### 📱 Responsive Updates
+- **Mobile Optimization**: Smaller switch sizes for touch interfaces
+- **Touch Targets**: Improved accessibility for mobile users
+- **Flexible Layout**: Better adaptation to different screen sizes
+
+### 🎯 Breaking Changes
+- **Indeterminate State**: No longer supported (simplified to binary states)
+- **CSS Classes**: Updated class names for switch-based design
+- **Event Structure**: Simplified event payload structure
+
+---
+
+## [1.35.0] - 2025-01-29
+
+### Added
+- **New Checkbox Component**: Created a comprehensive checkbox web component
+  - **Core Features**: 
+    - Basic checkbox functionality with checked/unchecked states
+    - Indeterminate state support for partial selections
+    - Disabled state for non-interactive checkboxes
+    - Custom label support with HTML content
+  - **Styling Options**:
+    - Three sizes: `sm`, `md`, `lg`
+    - Six variants: `primary`, `secondary`, `success`, `danger`, `warning`, `info`
+    - Dark theme support with proper contrast
+    - Smooth transitions and hover effects
+  - **Accessibility**:
+    - Keyboard navigation support (Space/Enter keys)
+    - Proper ARIA attributes and focus management
+    - Screen reader friendly
+  - **JavaScript API**:
+    - `DtCheckbox.create()` static method for programmatic creation
+    - Event system with `dt-checkbox-change` custom events
+    - Public methods: `setChecked()`, `setIndeterminate()`, `setDisabled()`, etc.
+  - **Integration**:
+    - Uses existing `dt-icon` component for checkmarks and minus icons
+    - Follows established web component patterns
+    - Compatible with existing form styling
+
+### Technical Implementation
+- **Component File**: `src/js/checkbox-component.js`
+- **Styles File**: `src/scss/components/_checkbox.scss`
+- **Test Suite**: `test/checkbox-component-test.js` with comprehensive Playwright tests
+- **Documentation**: Added complete examples and API documentation in `index.html`
+
+### Testing
+- **Automated Tests**: Created comprehensive test suite covering all features
+  - Basic rendering and functionality tests
+  - Size and variant testing
+  - State management (checked, disabled, indeterminate)
+  - Event handling verification
+  - Dark theme compatibility
+  - Screenshot capture for visual verification
+- **Test Results**: All major functionality tests passing
+- **Screenshots**: Saved test screenshots to `test/screenshots/checkbox-component-test.png`
+
 ## [1.34.0] - 2025-01-29
 
 ### Fixed
