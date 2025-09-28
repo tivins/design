@@ -95,6 +95,14 @@ class DtPopin extends HTMLElement {
           border-radius: var(--border-radius-sm, 0.25rem);
           cursor: pointer;
           transition: all var(--transition-fast, 0.15s ease-in-out);
+          box-sizing: border-box;
+          word-wrap: break-word;
+          word-break: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          min-width: 0;
         }
 
         .popin-item dt-icon {
@@ -413,6 +421,14 @@ class DtPopin extends HTMLElement {
           border-radius: var(--border-radius-sm, 0.25rem);
           cursor: pointer;
           transition: all var(--transition-fast, 0.15s ease-in-out);
+          box-sizing: border-box;
+          word-wrap: break-word;
+          word-break: break-word;
+          overflow-wrap: break-word;
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          min-width: 0;
         }
 
         .popin-item dt-icon {

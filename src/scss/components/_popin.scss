@@ -78,7 +78,10 @@
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
-  white-space: nowrap;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
   
   dt-icon {
     flex-shrink: 0;

@@ -526,6 +526,49 @@
                 
                 <div class="row mt-4">
                     <div class="col-md-6">
+                        <h4>Long Links Demo (Overflow Fix)</h4>
+                        <dt-popin trigger-text="Long Links Test" size="md">
+                            <div class="popin-item" data-action="default">
+                                <dt-icon name="home"></dt-icon>
+                                <span>This is a very long link text that should wrap properly and not overflow the container</span>
+                            </div>
+                            <div class="popin-item" data-action="default">
+                                <dt-icon name="user"></dt-icon>
+                                <span>Another extremely long link text that might cause overflow issues if not handled correctly</span>
+                            </div>
+                            <div class="popin-item" data-action="default">
+                                <dt-icon name="settings"></dt-icon>
+                                <span>Short link</span>
+                            </div>
+                            <div class="popin-item" data-action="default">
+                                <dt-icon name="help"></dt-icon>
+                                <span>This is another very long link text that should be handled properly with text wrapping and ellipsis if needed</span>
+                            </div>
+                        </dt-popin>
+                        
+                        <dt-code-example>
+<dt-popin trigger-text="Long Links Test" size="md">
+    <div class="popin-item" data-action="default">
+        <dt-icon name="home"></dt-icon>
+        <span>This is a very long link text that should wrap properly and not overflow the container</span>
+    </div>
+    <div class="popin-item" data-action="default">
+        <dt-icon name="user"></dt-icon>
+        <span>Another extremely long link text that might cause overflow issues if not handled correctly</span>
+    </div>
+    <div class="popin-item" data-action="default">
+        <dt-icon name="settings"></dt-icon>
+        <span>Short link</span>
+    </div>
+    <div class="popin-item" data-action="default">
+        <dt-icon name="help"></dt-icon>
+        <span>This is another very long link text that should be handled properly with text wrapping and ellipsis if needed</span>
+    </div>
+</dt-popin>
+                        </dt-code-example>
+                    </div>
+                    
+                    <div class="col-md-6">
                         <h4>Positioning Variants</h4>
                         <div class="d-flex gap-3 flex-wrap">
                             <dt-popin position="left">

@@ -5,6 +5,46 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.31.0] - 2025-01-28
+
+### Fixed
+- **Popin Component Link Overflow**: Fixed issue where long links in popin items would overflow the container
+  - **CSS Improvements**: Updated `.popin-item` styles to handle long text properly
+    - Changed `white-space: nowrap` to `white-space: normal` to allow text wrapping
+    - Added `overflow: hidden` and `text-overflow: ellipsis` for proper text truncation
+    - Added `min-width: 0` to allow flex items to shrink below their content size
+    - Enhanced `word-wrap`, `word-break`, and `overflow-wrap` properties for better text handling
+  - **JavaScript Component**: Updated inline styles in `popin-component.js` to match SCSS changes
+    - Applied same overflow handling properties to both render methods
+    - Ensured consistency between SCSS and JavaScript component styles
+  - **Responsive Design**: Improved popin behavior across different screen sizes
+    - Better handling of long URLs and text content
+    - Proper containment within popin menu boundaries
+    - Enhanced user experience for popin items with extensive text
+
+### Technical Details
+- **File Changes**: 
+  - `src/scss/components/_popin.scss`: Updated `.popin-item` styles for overflow handling
+  - `src/js/popin-component.js`: Synchronized inline styles with SCSS changes
+  - `dist/css/style.css`: Rebuilt with updated styles
+- **CSS Properties Added**:
+  - `white-space: normal` (replaced `nowrap`)
+  - `overflow: hidden`
+  - `text-overflow: ellipsis`
+  - `min-width: 0`
+- **Testing**: Created comprehensive tests to verify link overflow fix
+  - Dark and light theme testing
+  - Different popin sizes (sm, md, lg)
+  - Long URL and text content validation
+
+### Files Modified
+- `src/scss/components/_popin.scss`: Enhanced popin item overflow handling
+- `src/js/popin-component.js`: Updated inline styles for consistency
+- `dist/css/style.css`: Rebuilt with overflow fixes
+- `test/popin-link-overflow-test.js`: Added comprehensive test suite
+- `test/popin-link-overflow-fix-test.js`: Created Puppeteer-based test
+- `test/popin-link-overflow-simple-test.js`: Added simple validation test
+
 ## [1.30.0] - 2025-01-28
 
 ### Changed
