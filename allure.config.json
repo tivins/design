@@ -1,0 +1,36 @@
+{
+  "name": "Design Toolkit Test Reports",
+  "type": "project",
+  "id": "design-toolkit-tests",
+  "description": "Comprehensive test reports for Design Toolkit components and functionality",
+  "links": [
+    {
+      "name": "GitHub Repository",
+      "url": "https://github.com/tivins/design"
+    },
+    {
+      "name": "Documentation",
+      "url": "https://tivins.github.io/design"
+    }
+  ],
+  "labels": [
+    {
+      "name": "framework",
+      "value": "design-toolkit"
+    },
+    {
+      "name": "environment",
+      "value": "windows-11"
+    },
+    {
+      "name": "browser",
+      "value": "chromium"
+    }
+  ],
+  "environment": {
+    "os": "Windows 11",
+    "node": "18.x",
+    "browser": "Chromium",
+    "viewport": "1920x1080"
+  }
+}

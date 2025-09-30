@@ -34,7 +34,7 @@ npm run lint
 
 ## Documentation
 
-Visit the [live demo](https://tivins.github.io/design-toolkit/) to see all components in action.
+Visit the [live demo](https://tivins.github.io/design) to see all components in action.
 
 ## CI/CD
 

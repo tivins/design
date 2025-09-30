@@ -1,0 +1,89 @@
+# Allure Report Configuration
+# This file configures Allure reporting for the Design Toolkit test suite
+
+# Report title and description
+title: "Design Toolkit Test Reports"
+description: "Comprehensive test reports for Design Toolkit components and functionality"
+
+# Report configuration
+report:
+  # Output directory for generated reports
+  output: "allure-report"
+  
+  # Clean previous reports before generating new ones
+  clean: true
+  
+  # Generate both HTML and JSON reports
+  formats:
+    - html
+    - json
+
+# Test execution configuration
+execution:
+  # Test environment information
+  environment:
+    os: "Windows 11"
+    node: "18.x"
+    browser: "Chromium"
+    viewport: "1920x1080"
+  
+  # Test categories
+  categories:
+    - name: "Unit Tests"
+      matchedStatuses: ["passed", "failed", "broken", "skipped"]
+      messageRegex: ".*unit.*"
+    
+    - name: "E2E Tests"
+      matchedStatuses: ["passed", "failed", "broken", "skipped"]
+      messageRegex: ".*e2e.*"
+    
+    - name: "Visual Tests"
+      matchedStatuses: ["passed", "failed", "broken", "skipped"]
+      messageRegex: ".*visual.*"
+
+# Attachments configuration
+attachments:
+  # Screenshot settings
+  screenshots:
+    enabled: true
+    path: "tests/screenshots"
+    formats: ["png", "jpg"]
+  
+  # Video settings
+  videos:
+    enabled: true
+    path: "tests/videos"
+    formats: ["mp4", "webm"]
+  
+  # Log files
+  logs:
+    enabled: true
+    path: "test-results/logs"
+    formats: ["txt", "log"]
+
+# Custom styles and branding
+styles:
+  # Custom CSS for report styling
+  customCss: "allure-custom.css"
+  
+  # Custom logo
+  logo: "logo.png"
+
+# Integration settings
+integrations:
+  # JUnit XML integration
+  junit:
+    enabled: true
+    path: "test-results/junit-results.xml"
+  
+  # GitHub integration
+  github:
+    enabled: true
+    repository: "tivins/design"
+    branch: "main"
+  
+  # CI/CD integration
+  ci:
+    enabled: true
+    provider: "github-actions"
+    workflow: "test.yml"
